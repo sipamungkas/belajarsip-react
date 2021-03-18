@@ -14,9 +14,9 @@ export default class Login extends Component {
             <label htmlFor="username">Username or Email</label>
           </div>
           <div className="form-container">
-            <input type="text" id="username" placeholder="password" />
-            <img className="eye-icon" src={eyeIcon} alt="eye icon" />
+            <input type="text" id="username" placeholder="Password" />
             <label htmlFor="username">Password</label>
+            <img className="eye-icon" src={eyeIcon} alt="eye icon" />
           </div>
           <div className="col-12 forgot-password">Forgot password?</div>
           <div className="btn-container">
