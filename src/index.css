@@ -1,13 +1,54 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Kanit&family=Montserrat&family=Roboto&display=swap");
+/* 
+font-family: 'Kanit', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif; 
+*/
+:root {
+  --blue: rgba(87, 132, 186, 1);
+  --dark-blue: rgb(58, 108, 170);
+  --light-blue: rgba(230, 237, 246, 1);
+  --pink: rgba(244, 207, 223, 1);
+  --light-white: rgba(249, 249, 249, 1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html * {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  background-color: var(--light-blue);
+}
+
+/* utils */
+
+.rounded-5px {
+  border-radius: 5px;
+}
+
+.rounded-7px {
+  border-radius: 7px;
+}
+
+.rounded-10px {
+  border-radius: 10px;
+}
+
+.font-family-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.font-family-monsterrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-family-kanit {
+  font-family: "Kanit", sans-serif;
+}
+
+.bg-blue {
+  background-color: var(--light-blue);
 }
