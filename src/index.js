@@ -3,11 +3,22 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route } from "react-router-dom";
+
+const AppRouter = () => {
+  return (
+    <BrowserRouter>
+      <Route path="/" exact component={Login} />
+      <Route path="/register" exact component={Register} />
+    </BrowserRouter>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <Login />
+    <AppRouter />
   </React.StrictMode>,
   document.getElementById("root")
 );

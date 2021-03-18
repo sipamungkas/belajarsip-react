@@ -4,18 +4,18 @@
   height: 100vh;
 }
 
-.login-container {
+.register-container {
   height: 100vh;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
-.login-container h1 {
+.register-container h1 {
   font-family: Kanit;
   font-size: 3rem;
   font-style: normal;
   font-weight: 500;
   color: rgba(1, 6, 32, 1);
-  margin-bottom: 15%;
+  margin-bottom: 10%;
 }
 
 .form-container {
@@ -23,6 +23,28 @@
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
+}
+
+.form-container .password-match {
+  position: relative;
+  top: 0.3rem;
+  left: 1rem;
+  font-family: Roboto;
+  font-size: 0.625rem;
+  color: rgba(14, 170, 0, 1);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.form-container .password-no-match {
+  position: relative;
+  top: 0.3rem;
+  left: 1rem;
+  font-family: Roboto;
+  font-size: 0.625rem;
+  color: red;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .form-container input {
@@ -66,7 +88,7 @@
   visibility: hidden;
 }
 
-.login-container .forgot-password {
+.register-container .forgot-password {
   font-family: Roboto;
   font-size: 0.8rem; /* 14px */
   font-style: normal;
@@ -76,14 +98,14 @@
   color: black;
 }
 
-.login-container .btn-container {
+.register-container .btn-container {
   width: 100%;
-  margin-top: 15%;
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
 }
 
-.login-container .btn-container .btn-login {
+.register-container .btn-container .btn-login {
   cursor: pointer;
   height: 2.5rem;
   font-size: 1rem;
@@ -99,11 +121,11 @@
   justify-content: center;
 }
 
-.login-container .btn-container .btn-login:hover {
+.register-container .btn-container .btn-login:hover {
   background-color: var(--dark-blue);
 }
 
-.login-container .btn-container .btn-google {
+.register-container .btn-container .btn-google {
   cursor: pointer;
   margin-top: 3%;
   font-family: Kanit;
@@ -118,18 +140,18 @@
   justify-content: center;
 }
 
-.login-container .btn-container .btn-google:hover {
+.register-container .btn-container .btn-google:hover {
   background-color: rgba(0, 13, 79, 0.125);
 }
 
-.login-container .btn-container .btn-google img {
+.register-container .btn-container .btn-google img {
   background-color: transparent;
   height: 80%;
   margin: 0 0.5rem;
 }
 
-.login-container .new-user {
-  margin-top: 20%;
+.register-container .new-user {
+  margin-top: 10%;
   font-family: Kanit;
   font-size: 0.825rem;
   font-style: normal;
@@ -138,7 +160,7 @@
   text-decoration: none;
 }
 
-.login-container .new-user span {
+.register-container .new-user span {
   font-family: Roboto;
   font-size: 0.825rem;
   font-style: normal;
@@ -152,8 +174,11 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .login-container .new-user {
-    margin-top: 20%;
+  .register-container {
+    padding: 4.5%;
+  }
+  .register-container .new-user {
+    margin-top: 10%;
   }
 }
 
@@ -184,11 +209,11 @@
     cursor: pointer;
   }
 
-  .login-container .btn-container {
+  .register-container .btn-container {
     margin-top: 20%;
   }
 
-  .login-container .new-user {
+  .register-container .new-user {
     margin-top: 30%;
   }
 }
@@ -199,6 +224,9 @@
 
 /* 1440 up devices */
 @media (min-width: 1440px) {
+  .register-container h1 {
+    margin-bottom: 30%;
+  }
   .form-container input {
     height: 4rem;
     padding: 1rem 1.4rem;
@@ -210,7 +238,7 @@
     font-size: 1.25rem;
   }
 
-  .login-container .forgot-password {
+  .register-container .forgot-password {
     font-family: Roboto;
     font-size: 1rem; /* 14px */
     font-style: normal;
@@ -233,14 +261,14 @@
     cursor: pointer;
   }
 
-  .login-container .btn-container {
+  .register-container .btn-container {
     width: 100%;
-    margin-top: 20%;
+    margin-top: 22%;
     display: flex;
     flex-direction: column;
   }
 
-  .login-container .btn-container .btn-login {
+  .register-container .btn-container .btn-login {
     cursor: pointer;
     height: 4rem;
     font-size: 1.5rem;
@@ -256,11 +284,11 @@
     justify-content: center;
   }
 
-  .login-container .btn-container .btn-login:hover {
+  .register-container .btn-container .btn-login:hover {
     background-color: var(--dark-blue);
   }
 
-  .login-container .btn-container .btn-google {
+  .register-container .btn-container .btn-google {
     cursor: pointer;
     margin-top: 3%;
     font-family: Kanit;
@@ -275,17 +303,17 @@
     justify-content: center;
   }
 
-  .login-container .btn-container .btn-google:hover {
+  .register-container .btn-container .btn-google:hover {
     background-color: rgba(0, 13, 79, 0.125);
   }
 
-  .login-container .btn-container .btn-google img {
+  .register-container .btn-container .btn-google img {
     background-color: transparent;
     height: 80%;
     margin: 0 0.5rem;
   }
 
-  .login-container .new-user {
+  .register-container .new-user {
     margin-top: 30%;
     font-family: Kanit;
     font-size: 1rem;
@@ -294,7 +322,7 @@
     color: #ada9bb;
   }
 
-  .login-container .new-user span {
+  .register-container .new-user span {
     font-family: Roboto;
     font-size: 1rem;
     font-style: normal;
