@@ -53,6 +53,15 @@
   background-color: transparent;
 }
 
+.form-container .eye-icon {
+  position: absolute;
+  height: 1.5rem;
+  background-color: transparent;
+  right: 0.5rem;
+  top: 0.5rem;
+  cursor: pointer;
+}
+
 .form-container input:placeholder-shown + label {
   visibility: hidden;
 }
@@ -166,6 +175,14 @@
     font-size: 1rem;
   }
 
+  .form-container .eye-icon {
+    height: 2rem;
+    background-color: transparent;
+    right: 0.5rem;
+    top: 0.5rem;
+    cursor: pointer;
+  }
+
   .btn-container {
     margin-top: 20%;
   }
@@ -206,6 +223,15 @@
     left: 1rem;
     font-size: 1.25rem;
   }
+
+  .form-container .eye-icon {
+    height: 2.5rem;
+    background-color: transparent;
+    right: 0.5rem;
+    top: 0.7rem;
+    cursor: pointer;
+  }
+
   .btn-container {
     width: 100%;
     margin-top: 20%;
