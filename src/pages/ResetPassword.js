@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import qs from "query-string";
 import "../styles/resetPassword.css";
+import ResetLeftSide from "../components/ResetLeftSide";
 
 class ResetPassword extends Component {
   render() {
-    console.log(this.props.location.search);
+    const { location } = this.props;
+    const queryParams = qs.parse(location.search);
     return (
       <div className="reset-container">
         <Link to="/" className="back-to-home">
@@ -14,13 +17,7 @@ class ResetPassword extends Component {
             alt="Back Icon"
           />
         </Link>
-        <div className="left-side">
-          <img
-            src="/assets/images/ilustration/question-ilustration.svg"
-            className="question-ilustration"
-            alt="question ilustration"
-          />
-        </div>
+        <ResetLeftSide step={queryParams.step > 2 ? "2" : "1"} />
         <div className="right-side">
           <h1>Reset Password</h1>
           <div>
