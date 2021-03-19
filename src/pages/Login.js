@@ -1,17 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-
 import "../styles/login.css";
 import googleIcon from "../assets/images/icons/google-icon.svg";
-import eyeIcon from "../assets/images/icons/eye-icon.svg";
-import eyeSlashIcon from "../assets/images/icons/eye-slash-icon.svg";
 import InputForm from "../components/InputForm";
 
 export default class Login extends Component {
   constructor() {
     super();
     this.state = {
-      showPassword: false,
       username: "",
       password: "",
     };
@@ -20,7 +16,6 @@ export default class Login extends Component {
     this.setState({ showPassword: !this.state.showPassword });
   };
   render() {
-    const { showPassword } = this.state;
     return (
       <>
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-4 login-container">

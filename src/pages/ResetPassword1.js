@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import qs from "query-string";
 import "../styles/resetPassword.css";
 import ResetLeftSide from "../components/ResetLeftSide";
 
@@ -17,9 +16,6 @@ class ResetPassword extends Component {
   };
 
   render() {
-    const { location } = this.props;
-    const queryString = qs.parse(location.search);
-
     console.log(this.state);
     return (
       <div className="reset-container">
@@ -30,7 +26,7 @@ class ResetPassword extends Component {
             alt="Back Icon"
           />
         </Link>
-        <ResetLeftSide step={queryString.s > 2 ? "2" : "1"} />
+        <ResetLeftSide step={"1"} />
         <div className="right-side">
           <h1>Reset Password</h1>
           <div>
