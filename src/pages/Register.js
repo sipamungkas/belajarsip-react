@@ -21,12 +21,20 @@ export default class Login extends Component {
     this.setState({ showPassword: !this.state.showPassword });
   };
 
-  render() {
-    console.log(this.state);
-    const { showPassword, email, password, confirmPassword } = this.state;
-    let passwordValidation = "";
-    if (password) {
-      passwordValidation = (
+  passwordValidation = (password) => {
+    if (password && password.length < 8) {
+      return (
+        <span className="password-match" style={{ color: "black" }}>
+          Must be at least 8 character
+        </span>
+      );
+    }
+    return "";
+  };
+
+  passwordMatch = (password, confirmPassword) => {
+    if (password && confirmPassword) {
+      return (
         <span
           className={
             confirmPassword === password
@@ -40,6 +48,12 @@ export default class Login extends Component {
         </span>
       );
     }
+    return "";
+  };
+
+  render() {
+    console.log(this.state);
+    const { showPassword, email, password, confirmPassword } = this.state;
     return (
       <>
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-5 register-container">
@@ -65,6 +79,7 @@ export default class Login extends Component {
           </div>
 
           <div className="form-container mb-3">
+            {this.passwordValidation(password)}
             <input
               type={showPassword ? "text" : "password"}
               id="password"
@@ -81,7 +96,7 @@ export default class Login extends Component {
           </div>
 
           <div className="form-container">
-            {passwordValidation}
+            {this.passwordMatch(password, confirmPassword)}
             <input
               type={showPassword ? "text" : "password"}
               id="confirm"
@@ -99,7 +114,6 @@ export default class Login extends Component {
             />
           </div>
 
-          <div className="col-12 forgot-password">Forgot password?</div>
           <div className="btn-container">
             <div className="btn-login">Register</div>
             <div className="btn-google">
