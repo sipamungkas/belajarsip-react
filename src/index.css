@@ -52,3 +52,11 @@ html * {
 .bg-blue {
   background-color: var(--light-blue);
 }
+
+a {
+  text-decoration: none;
+}
+
+.text-black {
+  color: black !important;
+}

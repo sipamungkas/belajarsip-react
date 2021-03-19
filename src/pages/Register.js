@@ -24,7 +24,7 @@ export default class Login extends Component {
   passwordValidation = (password) => {
     if (password && password.length < 8) {
       return (
-        <span className="password-match" style={{ color: "black" }}>
+        <span className="password-match text-black">
           Must be at least 8 character
         </span>
       );
