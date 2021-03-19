@@ -23,15 +23,13 @@ class ResetPassword extends Component {
         <div className="right-side">
           <h1>Reset Password</h1>
           <div>
-            <h2 className="mb-2">
-              Enter your email address linked to this account.
-            </h2>
+            <h2>Enter your email address linked to this account.</h2>
             <h3>
               We will send you the verification code to reset your password
             </h3>
           </div>
           <div>
-            <div className="form-container mb-3">
+            <div className="form-container">
               <input
                 type="text"
                 id="username"
