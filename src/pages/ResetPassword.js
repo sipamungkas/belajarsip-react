@@ -1,50 +1,47 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "../styles/resetPassword.css";
 
 class ResetPassword extends Component {
   render() {
     return (
-      <div>
-        <Link href="index.html">
+      <div className="reset-container">
+        <Link to="/" className="back-to-home">
           <img
             src="/assets/images/icons/back-icon.svg"
             className="back-icon"
             alt="Back Icon"
           />
         </Link>
-        <div className="row col-10 col-md-12 col-lg-12">
-          <div className="col-12 col-md-6 question-ilustration-container">
-            <img
-              src="/assets/images/ilustration/question-ilustration.svg"
-              className="question-ilustration"
-              alt="question ilustration"
-            />
+        <div className="left-side">
+          <img
+            src="/assets/images/ilustration/question-ilustration.svg"
+            className="question-ilustration"
+            alt="question ilustration"
+          />
+        </div>
+        <div className="right-side">
+          <h1>Reset Password</h1>
+          <div>
+            <h2 className="mb-2">
+              Enter your email address linked to this account.
+            </h2>
+            <h3>
+              We will send you the verification code to reset your password
+            </h3>
           </div>
-
-          <div className="col-12 col-md-6 reset-form-container">
-            <div className="d-flex align-items-center justify-content-center flex-column text-center">
-              <h1>Reset Password</h1>
-              <p className="enter-email-instruction">
-                Enter your email address linked to this account.
-              </p>
-              <p className="reset-description-text">
-                We will send you the verification code to reset your password
-              </p>
-            </div>
-            <div className="form-group">
-              <label for="email" className="form-label-materialize bg-white">
-                Email
-              </label>
+          <div>
+            <div className="form-container mb-3">
               <input
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder=""
+                type="text"
+                id="username"
+                placeholder="Username or Email"
               />
+              <label htmlFor="username">Username or Email</label>
             </div>
-            <button className="btn btn-primary-color rounded-5px my-3">
-              Send
-            </button>
+            <div className="btn-container">
+              <div className="btn-login">Send</div>
+            </div>
           </div>
         </div>
       </div>
