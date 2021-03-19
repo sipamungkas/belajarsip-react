@@ -5,6 +5,7 @@ import "../styles/login.css";
 import googleIcon from "../assets/images/icons/google-icon.svg";
 import eyeIcon from "../assets/images/icons/eye-icon.svg";
 import eyeSlashIcon from "../assets/images/icons/eye-slash-icon.svg";
+import InputForm from "../components/InputForm";
 
 export default class Login extends Component {
   constructor() {
@@ -24,28 +25,28 @@ export default class Login extends Component {
       <>
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-4 login-container">
           <h1>Login</h1>
-          <div className="form-container mb-3">
-            <input type="text" id="username" placeholder="Username or Email" />
-            <label htmlFor="username">Username or Email</label>
-          </div>
-          <div className="form-container">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              placeholder="Password"
-              onChange={(e) => this.setState({ password: e.target.value })}
-            />
-            <label htmlFor="password">Password</label>
-            <img
-              className="eye-icon"
-              src={showPassword ? eyeSlashIcon : eyeIcon}
-              alt="eye icon"
-              onClick={this.eyeIconHandler}
-            />
-          </div>
-          <Link to="/reset-password?s=1" className="col-12 forgot-password">
-            Forgot password?
-          </Link>
+
+          <InputForm
+            type={"text"}
+            forId={"username"}
+            placeholder={"Username or Email"}
+            label={"Username or Email"}
+            onChange={(e) => this.setState({ username: e.target.value })}
+          />
+
+          <InputForm
+            type={"password"}
+            forId={"password"}
+            placeholder={"Password"}
+            label={"password"}
+            onChange={(e) => this.setState({ password: e.target.value })}
+            additional={
+              <Link to="/reset-password?s=1" className="col-12 forgot-password">
+                Forgot password?
+              </Link>
+            }
+          />
+
           <div className="btn-container">
             <div className="btn-login">Login</div>
             <div className="btn-google">

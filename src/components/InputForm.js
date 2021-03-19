@@ -12,10 +12,11 @@ function InputFormPassword(props) {
     onChangeHandler,
     type,
     additional,
+    mb,
   } = props;
   if (type === "password") {
     return (
-      <div className="form-container mb-3">
+      <div className={`form-container ${mb ? `mb-${mb}` : "mb-3"}`}>
         {additional}
         <input
           type={show ? "text" : "password"}
@@ -34,7 +35,7 @@ function InputFormPassword(props) {
     );
   }
   return (
-    <div className="form-container mb-3">
+    <div className={`form-container ${mb ? `mb-${mb}` : "mb-3"}`}>
       {additional}
       <input
         type={type}
