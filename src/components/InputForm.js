@@ -54,6 +54,8 @@ InputFormPassword.propTypes = {
   forId: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
+  mb: PropTypes.string,
+  additional: PropTypes.object,
 };
 
 export default InputFormPassword;
