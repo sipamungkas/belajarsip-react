@@ -5,8 +5,8 @@
 }
 
 .register-container {
-  height: 100vh;
-  padding-top: 5%;
+  /* height: 100vh; */
+  padding-bottom: 10%;
 }
 
 .register-container h1 {
@@ -151,7 +151,13 @@
 }
 
 .register-container .new-user {
-  margin-top: 10%;
+  position: absolute;
+  background-color: transparent;
+  bottom: 5%;
+  right: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
   font-family: Kanit;
   font-size: 0.825rem;
   font-style: normal;
@@ -166,6 +172,7 @@
   font-style: normal;
   font-weight: 600;
   color: var(--blue);
+  background-color: transparent;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -210,11 +217,12 @@
   }
 
   .register-container .btn-container {
-    margin-top: 20%;
+    margin-top: 7%;
   }
 
   .register-container .new-user {
-    margin-top: 30%;
+    /* margin-top: 30%; */
+    bottom: 3%;
   }
 }
 
@@ -225,7 +233,7 @@
 /* 1440 up devices */
 @media (min-width: 1440px) {
   .register-container h1 {
-    margin-bottom: 30%;
+    /* margin-bottom: 30%; */
   }
   .form-container input {
     height: 4rem;
@@ -263,7 +271,7 @@
 
   .register-container .btn-container {
     width: 100%;
-    margin-top: 22%;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
   }
