@@ -4,6 +4,7 @@ import "../styles/resetPassword.css";
 
 class ResetPassword extends Component {
   render() {
+    console.log(this.props.location.search);
     return (
       <div className="reset-container">
         <Link to="/" className="back-to-home">

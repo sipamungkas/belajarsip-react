@@ -43,7 +43,7 @@ export default class Login extends Component {
               onClick={this.eyeIconHandler}
             />
           </div>
-          <Link to="/reset-password" className="col-12 forgot-password">
+          <Link to="/reset-password?s=1" className="col-12 forgot-password">
             Forgot password?
           </Link>
           <div className="btn-container">
