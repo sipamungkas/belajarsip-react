@@ -7,7 +7,7 @@ import ResetLeftSide from "../components/ResetLeftSide";
 class ResetPassword extends Component {
   render() {
     const { location } = this.props;
-    const queryParams = qs.parse(location.search);
+    const queryString = qs.parse(location.search);
     return (
       <div className="reset-container">
         <Link to="/" className="back-to-home">
@@ -17,7 +17,7 @@ class ResetPassword extends Component {
             alt="Back Icon"
           />
         </Link>
-        <ResetLeftSide step={queryParams.step > 2 ? "2" : "1"} />
+        <ResetLeftSide step={queryString.step > 2 ? "2" : "1"} />
         <div className="right-side">
           <h1>Reset Password</h1>
           <div>
