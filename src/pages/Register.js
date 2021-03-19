@@ -2,8 +2,8 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../styles/register.css";
 import googleIcon from "../assets/images/icons/google-icon.svg";
-import eyeIcon from "../assets/images/icons/eye-icon.svg";
-import eyeSlashIcon from "../assets/images/icons/eye-slash-icon.svg";
+
+import InputForm from "../components/InputForm";
 
 export default class Login extends Component {
   constructor() {
@@ -13,13 +13,8 @@ export default class Login extends Component {
       email: "",
       password: "",
       confirmPassword: "",
-      showPassword: false,
     };
   }
-
-  eyeIconHandler = (e) => {
-    this.setState({ showPassword: !this.state.showPassword });
-  };
 
   passwordValidation = (password) => {
     if (password && password.length < 8) {
@@ -52,31 +47,49 @@ export default class Login extends Component {
   };
 
   render() {
-    console.log(this.state);
-    const { showPassword, email, password, confirmPassword } = this.state;
+    const { password, confirmPassword } = this.state;
     return (
       <>
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-5 register-container">
           <h1>Register</h1>
-          <div className="form-container mb-3">
-            <input
-              type="text"
-              id="username"
-              placeholder="Username"
-              onChange={(e) => this.setState({ username: e.target.value })}
-            />
-            <label htmlFor="username">Username</label>
-          </div>
+          <InputForm
+            type={"text"}
+            label={"Username"}
+            placeholder={"Username"}
+            forId={"username"}
+            onChangeHandler={(e) => this.setState({ username: e.target.value })}
+          />
 
-          <div className="form-container mb-3">
-            <input
-              type="text"
-              id="email"
-              placeholder="Email"
-              onChange={(e) => this.setState({ email: e.target.value })}
-            />
-            <label htmlFor="email">Email</label>
-          </div>
+          <InputForm
+            type={"email"}
+            label={"Email"}
+            placeholder={"Email"}
+            forId={"email"}
+            onChangeHandler={(e) => this.setState({ email: e.target.value })}
+          />
+
+          <InputForm
+            additional={this.passwordValidation(password)}
+            type={"password"}
+            label={"Password"}
+            placeholder={"Password"}
+            forId={"password"}
+            onChangeHandler={(e) => this.setState({ password: e.target.value })}
+          />
+
+          <InputForm
+            additional={this.passwordMatch(password, confirmPassword)}
+            type={"password"}
+            label={"Confirm Password"}
+            placeholder={"Confirm Password"}
+            forId={"confirm-password"}
+            onChangeHandler={(e) =>
+              this.setState({ confirmPassword: e.target.value })
+            }
+          />
+
+          {/*         
+          
 
           <div className="form-container mb-3">
             {this.passwordValidation(password)}
@@ -93,9 +106,9 @@ export default class Login extends Component {
               alt="eye icon"
               onClick={this.eyeIconHandler}
             />
-          </div>
+          </div> */}
 
-          <div className="form-container">
+          {/* <div className="form-container">
             {this.passwordMatch(password, confirmPassword)}
             <input
               type={showPassword ? "text" : "password"}
@@ -112,7 +125,7 @@ export default class Login extends Component {
               alt="eye icon"
               onClick={this.eyeIconHandler}
             />
-          </div>
+          </div> */}
 
           <div className="btn-container">
             <div className="btn-login">Register</div>

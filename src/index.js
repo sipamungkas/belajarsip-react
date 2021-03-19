@@ -6,14 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ResetPassword from "./pages/ResetPassword";
+import ResetPassword1 from "./pages/ResetPassword1";
+import ResetPassword2 from "./pages/ResetPassword2";
+import ResetPassword3 from "./pages/ResetPassword3";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Route path="/" exact component={Login} />
       <Route path="/register" exact component={Register} />
-      <Route path="/reset-password" exact component={ResetPassword} />
+      <Route path="/reset-password" exact component={ResetPassword1} />
+      <Route path="/reset-password?s=2" exact component={ResetPassword2} />
+      <Route path="/reset-password?s=3" exact component={ResetPassword3} />
     </BrowserRouter>
   );
 };
