@@ -232,9 +232,9 @@
 
 /* 1440 up devices */
 @media (min-width: 1440px) {
-  .register-container h1 {
-    /* margin-bottom: 30%; */
-  }
+  /* .register-container h1 {
+    margin-bottom: 30%;
+  } */
   .form-container input {
     height: 4rem;
     padding: 1rem 1.4rem;
