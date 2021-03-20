@@ -5,20 +5,20 @@ export default function DashboardNews() {
   return (
     <>
       <section className={"news"}>
-        <div class="card">
-          <h5 class="title">News</h5>
-          <div class="news-image-container">
+        <div className="card">
+          <h5 className="title">News</h5>
+          <div className="news-image-container">
             <div
               id="carouselExampleIndicators"
-              class="carousel slide rounded-10px"
+              className="carousel slide rounded-10px"
               data-bs-ride="carousel"
             >
-              <div class="carousel-indicators">
+              <div className="carousel-indicators">
                 <button
                   type="button"
                   data-bs-target="#carouselExampleIndicators"
                   data-bs-slide-to="0"
-                  class="active"
+                  className="active"
                   aria-current="true"
                   aria-label="Slide 1"
                 ></button>
@@ -35,61 +35,61 @@ export default function DashboardNews() {
                   aria-label="Slide 3"
                 ></button>
               </div>
-              <div class="carousel-inner rounded-bottom-10px">
-                <div class="carousel-item active">
+              <div className="carousel-inner rounded-bottom-10px">
+                <div className="carousel-item active">
                   <img
                     src="assets/images/news-image-1.jpg"
-                    class="d-block w-100"
+                    className="d-block w-100"
                     alt="news 1"
                   />
-                  <div class="carousel-caption d-none d-md-block">
+                  <div className="carousel-caption d-none d-md-block">
                     <h5>New update for front end development class sylabus!</h5>
                   </div>
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                   <img
                     src="assets/images/news-image-1.jpg"
-                    class="d-block w-100"
+                    className="d-block w-100"
                     alt="news 1"
                   />
-                  <div class="carousel-caption d-none d-md-block">
+                  <div className="carousel-caption d-none d-md-block">
                     <h5>New update for front end development class sylabus!</h5>
                   </div>
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                   <img
                     src="assets/images/news-image-1.jpg"
-                    class="d-block w-100"
+                    className="d-block w-100"
                     alt="news 1"
                   />
-                  <div class="carousel-caption d-none d-md-block">
+                  <div className="carousel-caption d-none d-md-block">
                     <h5>New update for front end development class sylabus!</h5>
                   </div>
                 </div>
               </div>
               <button
-                class="carousel-control-prev"
+                className="carousel-control-prev"
                 type="button"
                 data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev"
               >
                 <span
-                  class="carousel-control-prev-icon"
+                  className="carousel-control-prev-icon"
                   aria-hidden="true"
                 ></span>
-                <span class="visually-hidden">Previous</span>
+                <span className="visually-hidden">Previous</span>
               </button>
               <button
-                class="carousel-control-next"
+                className="carousel-control-next"
                 type="button"
                 data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="next"
               >
                 <span
-                  class="carousel-control-next-icon"
+                  className="carousel-control-next-icon"
                   aria-hidden="true"
                 ></span>
-                <span class="visually-hidden">Next</span>
+                <span className="visually-hidden">Next</span>
               </button>
             </div>
           </div>

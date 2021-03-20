@@ -12,7 +12,6 @@ export default function Sidebar() {
             id={"humberger-icon"}
             className={"fill-white touchable"}
             height={"32px"}
-            style={{ "enable-background": "new 0 0 32 32" }}
             version="1.1"
             viewBox="0 0 32 32"
             width="32px"
