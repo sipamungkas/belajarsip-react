@@ -67,32 +67,3 @@ main section.schedule .card .all-schedule .first {
 main section.schedule .card .all-schedule .last {
   color: rgba(173, 169, 187, 1);
 }
-
-main section.schedule .card .schedule-list .schedule-time {
-  position: relative;
-  z-index: 1;
-  margin-top: 1rem;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: Roboto;
-  font-size: 0.9rem;
-  font-style: normal;
-  font-weight: 500;
-}
-
-main section.schedule .card .schedule-list .schedule-time::before {
-  border-top: 2px solid rgba(0, 0, 0, 0.55);
-  content: "";
-  margin: 0 auto; /* this centers the line to the full width specified */
-  position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
-  top: 44%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 95%;
-  z-index: -1;
-}
-
-main section.schedule .card .schedule-list .schedule-time span {
-  background-color: white;
-}
