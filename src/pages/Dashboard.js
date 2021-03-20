@@ -3,11 +3,26 @@ import Sidebar from "../components/Sidebar";
 import DashboardMain from "../components/DashboardMain";
 
 export default class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showMessage: false,
+    };
+  }
+
+  setShowMessage = () => {
+    this.setState({ showMessage: !this.state.showMessage });
+  };
+
   render() {
+    const { showMessage } = this.state;
     return (
       <>
-        <Sidebar />
-        <DashboardMain />
+        <Sidebar onShowMessage={() => this.setShowMessage} />
+        <DashboardMain
+          showMessage={showMessage}
+          onShowMessage={() => this.setShowMessage}
+        />
       </>
     );
   }
