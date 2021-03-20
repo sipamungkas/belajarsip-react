@@ -59,9 +59,10 @@ export default function DashboardMessage(props) {
           />
           <input type="text" placeholder="Search" />
         </div>
-        <div class="message-list">
+        <div className="message-list">
           {messages.map((message, index) => (
             <MessageItem
+              key={index}
               sender={message.sender}
               content={message.content}
               timestamp={message.timestamp}

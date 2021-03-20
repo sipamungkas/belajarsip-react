@@ -13,3 +13,30 @@ main section .card .title {
   font-weight: 700;
   padding: 0.6rem 1rem;
 }
+
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 72%;
+    overflow-y: scroll;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* 1440 up devices */
+@media (min-width: 1440px) {
+}
