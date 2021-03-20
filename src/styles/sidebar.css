@@ -15,7 +15,7 @@
   width: 100vw;
 }
 
-aside {
+aside.left-sidebar {
   padding-top: 48px;
   position: fixed;
   top: 0;
