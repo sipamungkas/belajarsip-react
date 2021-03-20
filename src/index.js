@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
+import Dashboard from "./pages/Dashboard";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
       <Route path="/" exact component={Login} />
       <Route path="/register" exact component={Register} />
       <Route path="/reset-password/:id?" exact component={ResetPassword} />
+      <Route path="/dashboard/:pages?" exact component={Dashboard} />
     </BrowserRouter>
   );
 };

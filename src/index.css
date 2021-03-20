@@ -56,10 +56,30 @@ body {
   background-color: var(--light-blue);
 }
 
+.bg-primary-blue {
+  background-color: var(--blue);
+}
+
 a {
   text-decoration: none;
 }
 
 .text-black {
   color: black !important;
+}
+
+.text-white {
+  color: white;
+}
+
+.fill-white {
+  fill: white;
+}
+
+.fill-black {
+  fill: black;
+}
+
+.touchable {
+  cursor: pointer;
 }
