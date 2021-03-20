@@ -13,6 +13,7 @@ class ResetPassword extends Component {
     this.state = {
       password: "",
       confirmPassword: "",
+      success: false,
     };
   }
 
@@ -90,11 +91,16 @@ class ResetPassword extends Component {
           </div>
           <div>
             <div className="btn-container">
-              <div className="btn-login">Send</div>
+              <div
+                className="btn-login"
+                onClick={() => this.setState({ success: !this.state.success })}
+              >
+                Send
+              </div>
             </div>
           </div>
         </div>
-        <RightResetOverlay />
+        <RightResetOverlay show={this.state.success} />
       </div>
     );
   }

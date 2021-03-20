@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ResetRightOverlay() {
+export default function ResetRightOverlay(props) {
+  const { show } = props;
   return (
-    <div className={"right-reset-overlay"}>
+    <div className={`right-reset-overlay ${show ? "show-overlay" : ""}`}>
       <h1>Password changed!</h1>
       <img
         src="/assets/images/ilustration/success-ilustration.svg"
