@@ -5,7 +5,7 @@
   left: 0;
   height: 100%;
   width: 0;
-  z-index: 1;
+  z-index: 100;
   background-color: rgba(0, 0, 0, 0.6);
   transition: all 0.5s ease;
   overflow: hidden;
@@ -24,7 +24,7 @@ aside {
   height: 100%;
   width: 0%;
   background-color: var(--blue);
-  z-index: 2;
+  z-index: 1024;
   transition: all 0.5s ease;
   overflow: hidden;
 }
@@ -95,7 +95,7 @@ aside.left-sidebar .menu-container .menu-link {
   font-weight: 600;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   background-color: var(--blue);
   margin-top: -7%;
   padding: 5% 5% 12% 5%;

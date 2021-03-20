@@ -11,8 +11,8 @@ export default function DashboardScheduleItem(props) {
         <span>{courseTime ?? "00:00"}</span>
       </div>
       <div className="course-list">
-        {courseList.map((course) => (
-          <div className="course-item">
+        {courseList.map((course, index) => (
+          <div key={index} className="course-item">
             <img
               src={
                 course.categoryIcon ??
@@ -60,3 +60,8 @@ export default function DashboardScheduleItem(props) {
     </>
   );
 }
+
+DashboardScheduleItem.propTypes = {
+  courseTime: PropTypes.string,
+  courseList: PropTypes.arrayOf(PropTypes.object),
+};
