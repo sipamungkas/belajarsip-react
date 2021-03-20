@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/sidebar.css";
 
 export default function Sidebar() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   return (
     <>
       <nav className="navbar sticky-top bg-primary-blue d-block d-md-none">

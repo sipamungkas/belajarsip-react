@@ -1,0 +1,47 @@
+main {
+  height: 100%;
+  padding: 2% 1%;
+}
+
+main section.news .card {
+  border-radius: 10px;
+}
+
+main section.news .card .title {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+}
+
+main section.news .card img {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+main section.news .card .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: none;
+}
+
+main section.news .card .carousel-indicators button {
+  background-color: white;
+  opacity: 0.9;
+  border: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all 0.7s ease;
+}
+
+main section.news .card .carousel-indicators .active {
+  opacity: 1;
+  width: 25px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--blue);
+}
