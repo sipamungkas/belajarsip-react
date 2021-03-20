@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import "../styles/resetPassword.css";
 
-import ResetLeftSide from "../components/ResetLeftSide";
-import RightResetOverlay from "../components/ResetRightOverlay";
-import InputForm from "../components/InputForm";
+import ResetLeftSide from "./ResetLeftSide";
+import RightResetOverlay from "./ResetRightOverlay";
+import InputForm from "./InputForm";
 
 class ResetPassword extends Component {
   constructor() {
@@ -66,7 +66,7 @@ class ResetPassword extends Component {
               Your new password must be different from previous used password!
             </h3>
           </div>
-          <div>
+          <form>
             <InputForm
               additional={this.passwordValidation(password)}
               type={"password"}
@@ -88,7 +88,7 @@ class ResetPassword extends Component {
                 this.setState({ confirmPassword: e.target.value })
               }
             />
-          </div>
+          </form>
           <div>
             <div className="btn-container">
               <div

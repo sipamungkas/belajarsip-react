@@ -20,27 +20,28 @@ export default class Login extends Component {
       <>
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-4 login-container">
           <h1>Login</h1>
+          <form className={"w-100"}>
+            <InputForm
+              type={"text"}
+              forId={"username"}
+              placeholder={"Username or Email"}
+              label={"Username or Email"}
+              onChange={(e) => this.setState({ username: e.target.value })}
+            />
 
-          <InputForm
-            type={"text"}
-            forId={"username"}
-            placeholder={"Username or Email"}
-            label={"Username or Email"}
-            onChange={(e) => this.setState({ username: e.target.value })}
-          />
-
-          <InputForm
-            type={"password"}
-            forId={"password"}
-            placeholder={"Password"}
-            label={"password"}
-            onChange={(e) => this.setState({ password: e.target.value })}
-            additional={
-              <Link to="/reset-password?s=1" className="col-12 forgot-password">
-                Forgot password?
-              </Link>
-            }
-          />
+            <InputForm
+              type={"password"}
+              forId={"password"}
+              placeholder={"Password"}
+              label={"password"}
+              onChange={(e) => this.setState({ password: e.target.value })}
+              additional={
+                <Link to="/reset-password" className="col-12 forgot-password">
+                  Forgot password?
+                </Link>
+              }
+            />
+          </form>
 
           <div className="btn-container">
             <div className="btn-login">Login</div>

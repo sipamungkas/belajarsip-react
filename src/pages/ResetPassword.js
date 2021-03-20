@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import ResetPassword1 from "./ResetPassword1";
-import ResetPassword2 from "./ResetPassword2";
-import ResetPassword3 from "./ResetPassword3";
+import ResetPassword1 from "../components/ResetPassword1";
+import ResetPassword2 from "../components/ResetPassword2";
+import ResetPassword3 from "../components/ResetPassword3";
 
 export default class ResetPassword extends Component {
   render() {
     const { params } = this.props.match;
-    console.log(params);
     if (params.id === undefined || params.id > "4" || params.id === "1") {
       return <ResetPassword1 />;
     }

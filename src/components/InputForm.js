@@ -23,6 +23,7 @@ function InputFormPassword(props) {
           id={forId}
           placeholder={placeholder}
           onChange={onChangeHandler}
+          autoComplete={"false"}
         />
         <label htmlFor={forId}>{label}</label>
         <img
@@ -42,6 +43,7 @@ function InputFormPassword(props) {
         id={forId}
         placeholder={placeholder}
         onChange={onChangeHandler}
+        autoComplete={"true"}
       />
       <label htmlFor={forId}>{label}</label>
     </div>
@@ -55,7 +57,6 @@ InputFormPassword.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.string,
   mb: PropTypes.string,
-  additional: PropTypes.object,
 };
 
 export default InputFormPassword;

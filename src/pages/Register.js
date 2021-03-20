@@ -52,80 +52,47 @@ export default class Login extends Component {
       <>
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-5 register-container">
           <h1>Register</h1>
-          <InputForm
-            type={"text"}
-            label={"Username"}
-            placeholder={"Username"}
-            forId={"username"}
-            onChangeHandler={(e) => this.setState({ username: e.target.value })}
-          />
-
-          <InputForm
-            type={"email"}
-            label={"Email"}
-            placeholder={"Email"}
-            forId={"email"}
-            onChangeHandler={(e) => this.setState({ email: e.target.value })}
-          />
-
-          <InputForm
-            additional={this.passwordValidation(password)}
-            type={"password"}
-            label={"Password"}
-            placeholder={"Password"}
-            forId={"password"}
-            onChangeHandler={(e) => this.setState({ password: e.target.value })}
-          />
-
-          <InputForm
-            additional={this.passwordMatch(password, confirmPassword)}
-            type={"password"}
-            label={"Confirm Password"}
-            placeholder={"Confirm Password"}
-            forId={"confirm-password"}
-            onChangeHandler={(e) =>
-              this.setState({ confirmPassword: e.target.value })
-            }
-          />
-
-          {/*         
-          
-
-          <div className="form-container mb-3">
-            {this.passwordValidation(password)}
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              placeholder="Password"
-              onChange={(e) => this.setState({ password: e.target.value })}
+          <form className={"w-100"}>
+            <InputForm
+              type={"text"}
+              label={"Username"}
+              placeholder={"Username"}
+              forId={"username"}
+              onChangeHandler={(e) =>
+                this.setState({ username: e.target.value })
+              }
             />
-            <label htmlFor="password">Password</label>
-            <img
-              className="eye-icon"
-              src={showPassword ? eyeSlashIcon : eyeIcon}
-              alt="eye icon"
-              onClick={this.eyeIconHandler}
-            />
-          </div> */}
 
-          {/* <div className="form-container">
-            {this.passwordMatch(password, confirmPassword)}
-            <input
-              type={showPassword ? "text" : "password"}
-              id="confirm"
-              placeholder="Confirm Password"
-              onChange={(e) =>
+            <InputForm
+              type={"email"}
+              label={"Email"}
+              placeholder={"Email"}
+              forId={"email"}
+              onChangeHandler={(e) => this.setState({ email: e.target.value })}
+            />
+
+            <InputForm
+              additional={this.passwordValidation(password)}
+              type={"password"}
+              label={"Password"}
+              placeholder={"Password"}
+              forId={"password"}
+              onChangeHandler={(e) =>
+                this.setState({ password: e.target.value })
+              }
+            />
+
+            <InputForm
+              additional={this.passwordMatch(password, confirmPassword)}
+              type={"password"}
+              label={"Confirm Password"}
+              placeholder={"Confirm Password"}
+              forId={"confirm-password"}
+              onChangeHandler={(e) =>
                 this.setState({ confirmPassword: e.target.value })
               }
             />
-            <label htmlFor="confirm">Confirm Password</label>
-            <img
-              className="eye-icon"
-              src={showPassword ? eyeSlashIcon : eyeIcon}
-              alt="eye icon"
-              onClick={this.eyeIconHandler}
-            />
-          </div> */}
+          </form>
 
           <div className="btn-container">
             <div className="btn-login">Register</div>

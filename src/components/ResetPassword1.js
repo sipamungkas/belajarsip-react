@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/resetPassword.css";
-import ResetLeftSide from "../components/ResetLeftSide";
+import ResetLeftSide from "./ResetLeftSide";
 
 class ResetPassword extends Component {
   constructor() {
@@ -16,7 +16,6 @@ class ResetPassword extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="reset-container">
         <Link to="/" className="back-to-home">
@@ -45,7 +44,9 @@ class ResetPassword extends Component {
               <label htmlFor="username">Username or Email</label>
             </div>
             <div className="btn-container">
-              <div className="btn-login">Send</div>
+              <Link to={"/reset-password/2"}>
+                <div className="btn-login">Send</div>
+              </Link>
             </div>
           </div>
         </div>
