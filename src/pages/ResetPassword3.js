@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/resetPassword.css";
 
 import ResetLeftSide from "../components/ResetLeftSide";
+import RightResetOverlay from "../components/ResetRightOverlay";
 import InputForm from "../components/InputForm";
 
 class ResetPassword extends Component {
@@ -60,7 +61,7 @@ class ResetPassword extends Component {
         <div className="right-side">
           <h1>Create New Password</h1>
           <div>
-            <h3 className="mt-5">
+            <h3 className="my-3">
               Your new password must be different from previous used password!
             </h3>
           </div>
@@ -88,14 +89,12 @@ class ResetPassword extends Component {
             />
           </div>
           <div>
-            <div className="resend">
-              Didn’t receive a code? <span>Resend</span>
-            </div>
             <div className="btn-container">
               <div className="btn-login">Send</div>
             </div>
           </div>
         </div>
+        <RightResetOverlay />
       </div>
     );
   }

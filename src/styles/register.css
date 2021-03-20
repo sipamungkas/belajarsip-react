@@ -226,6 +226,16 @@
     /* margin-top: 30%; */
     bottom: 3%;
   }
+
+  .password-match {
+    transform: scale(1.2);
+    left: 2rem;
+  }
+
+  .password-no-match {
+    transform: scale(1.2);
+    left: 2rem;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
