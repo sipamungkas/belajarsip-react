@@ -35,3 +35,25 @@ main section.news .card .carousel-indicators .active {
     width: 100%;
   }
 }
+
+@media (min-width: 1440px) {
+  .carousel-caption {
+    background: linear-gradient(0deg, #000000 -15.5%, rgba(0, 0, 0, 0) 100%);
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 4rem;
+    padding-top: 1rem;
+    border-radius: 10px;
+  }
+
+  .carousel-caption h5 {
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 2rem;
+  }
+}

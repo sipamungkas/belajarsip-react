@@ -80,3 +80,35 @@ main section.schedule .card .all-schedule .last {
     width: 55%;
   }
 }
+
+@media (min-width: 1440px) {
+  main section.schedule .card .date-header .calendar-icon {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    height: 2.2rem;
+  }
+
+  main section.schedule .card .date-body {
+    padding-right: 3rem;
+    padding-left: 3rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0rem;
+  }
+
+  main section.schedule .card .date-body .date-item {
+    width: 2.2rem;
+  }
+
+  main section.schedule .card .date-body .date-item span {
+    font-size: 1.4rem;
+  }
+
+  main section.schedule .card .date-body .date-item span.day-name {
+    margin-bottom: 1%;
+  }
+
+  main section.schedule .card .all-schedule {
+    font-size: 1.3rem;
+    font-style: "normal";
+  }
+}

@@ -195,10 +195,6 @@ aside.message-container .message .message-body {
     /* background: red; */
   }
 
-  .show-overlay-right {
-    height: 100%;
-  }
-
   aside.message-container {
     position: static;
     padding: 1rem 1rem;
@@ -220,5 +216,59 @@ aside.message-container .message .message-body {
     width: auto;
     opacity: 1;
     overflow-y: scroll;
+  }
+}
+
+@media (min-width: 1440px) {
+  aside.message-container .title {
+    font-size: 2rem;
+    padding-left: 1rem;
+  }
+  aside.message-container img.circle-plus {
+    width: 1.8rem;
+  }
+
+  aside.message-container .search-box {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 30px;
+    min-height: 3rem;
+  }
+
+  aside.message-container .search-box input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 1.2rem 0;
+    margin-left: 4rem;
+  }
+
+  aside.message-container .search-box input::placeholder {
+    color: rgba(0, 0, 0, 1);
+    font-size: 1.5rem;
+  }
+
+  aside.message-container .search-box img.search-icon {
+    position: absolute;
+    height: 100%;
+    max-width: 2rem;
+    left: 1rem;
+  }
+
+  aside.message-container .message {
+    margin-top: 5%;
+  }
+
+  aside.message-container .message img {
+    margin-right: 8%;
+    width: 4.8rem;
+  }
+
+  aside.message-container .message .sender-name {
+    font-size: 1.7rem;
+  }
+  aside.message-container .message .message-content,
+  aside.message-container .message .message-timestamp {
+    font-size: 1.4rem;
   }
 }

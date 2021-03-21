@@ -92,4 +92,15 @@ main section .card .title {
     z-index: 2;
     display: flex;
   }
+
+  main section .card {
+    border-radius: 20px;
+  }
+
+  main section .card .title {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    padding: 1.2rem 1.5rem;
+  }
 }
