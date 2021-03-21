@@ -6,7 +6,7 @@ export default function MessageItem(props) {
   return (
     <div className="message">
       <img
-        src={avatar ?? "assets/images/avatars/avatar-1.png"}
+        src={avatar ?? "/assets/images/avatars/avatar-1.png"}
         alt="Nisa Sabyan"
       />
       <div className="message-body">

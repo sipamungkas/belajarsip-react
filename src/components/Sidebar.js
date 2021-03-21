@@ -74,7 +74,7 @@ export default function Sidebar(props) {
               />
             </svg>
             <img
-              src={"assets/images/ilustration/avatar.svg"}
+              src={"/assets/images/ilustration/avatar.svg"}
               className={"avatar-image"}
               alt={"avatar"}
             />
@@ -108,7 +108,7 @@ export default function Sidebar(props) {
             </Link>
             <Link to="/" className="menu-link">
               <img
-                src="assets/images/icons/logout-icon.svg"
+                src="/assets/images/icons/logout-icon.svg"
                 className="menu-icon text-danger"
                 alt="Logout Icon"
               />

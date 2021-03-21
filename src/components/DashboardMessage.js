@@ -9,93 +9,93 @@ export default function DashboardMessage(props) {
       sender: "Nisa sabyan",
       timestamp: "10.01 pm",
       content: "How about number 3?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Sasa",
       timestamp: "23.23 pm",
       content: "How about number 9?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko",
       timestamp: "10.04 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko Mangku Bumi Noto Langit",
       timestamp: "00.00 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Nisa sabyan",
       timestamp: "10.01 pm",
       content: "How about number 3?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Sasa",
       timestamp: "23.23 pm",
       content: "How about number 9?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko",
       timestamp: "10.04 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko Mangku Bumi Noto Langit",
       timestamp: "00.00 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Sasa",
       timestamp: "23.23 pm",
       content: "How about number 9?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko",
       timestamp: "10.04 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko Mangku Bumi Noto Langit",
       timestamp: "00.00 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Sasa",
       timestamp: "23.23 pm",
       content: "How about number 9?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko",
       timestamp: "10.04 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
     {
       sender: "Joko Mangku Bumi Noto Langit",
       timestamp: "00.00 pm",
       content:
         "How are you today? are you okay? can you give me the answer of number 10?",
-      avatar: "assets/images/avatars/avatar-1.png",
+      avatar: "/assets/images/avatars/avatar-1.png",
     },
   ];
 
@@ -119,7 +119,7 @@ export default function DashboardMessage(props) {
         </div>
         <div className="search-box">
           <img
-            src="assets/images/icons/search-icon.svg"
+            src="/assets/images/icons/search-icon.svg"
             alt="search icon"
             className={"search-icon"}
           />

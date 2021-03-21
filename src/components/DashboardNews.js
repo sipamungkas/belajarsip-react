@@ -38,7 +38,7 @@ export default function DashboardNews() {
               <div className="carousel-inner rounded-bottom-10px">
                 <div className="carousel-item active">
                   <img
-                    src="assets/images/news-image-1.jpg"
+                    src="/assets/images/news-image-1.jpg"
                     className="d-block w-100"
                     alt="news 1"
                   />
@@ -48,7 +48,7 @@ export default function DashboardNews() {
                 </div>
                 <div className="carousel-item">
                   <img
-                    src="assets/images/news-image-1.jpg"
+                    src="/assets/images/news-image-1.jpg"
                     className="d-block w-100"
                     alt="news 1"
                   />
@@ -58,7 +58,7 @@ export default function DashboardNews() {
                 </div>
                 <div className="carousel-item">
                   <img
-                    src="assets/images/news-image-1.jpg"
+                    src="/assets/images/news-image-1.jpg"
                     className="d-block w-100"
                     alt="news 1"
                   />

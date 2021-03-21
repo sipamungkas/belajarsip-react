@@ -8,7 +8,7 @@ export default function DashboardScheduleDate() {
       <div className={"date-header"}>
         <h5 className="title">Today, October 16</h5>
         <img
-          src="assets/images/icons/calendar-icon.svg"
+          src="/assets/images/icons/calendar-icon.svg"
           alt="calendar icon"
           className={"calendar-icon touchable"}
         />

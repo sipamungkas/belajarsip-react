@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
+import DashboardFU from "./pages/DashboardFU";
 
 const AppRouter = () => {
   return (
@@ -16,7 +17,8 @@ const AppRouter = () => {
       <Route path="/" exact component={Login} />
       <Route path="/register" exact component={Register} />
       <Route path="/reset-password/:id?" exact component={ResetPassword} />
-      <Route path="/dashboard/:pages?" exact component={Dashboard} />
+      <Route path="/dashboard/" exact component={Dashboard} />
+      <Route path="/dashboard/for-you" exact component={DashboardFU}></Route>
     </BrowserRouter>
   );
 };
