@@ -8,7 +8,7 @@ export default function DashboardMain(props) {
   const { showMessage, onShowMessage } = props;
   return (
     <>
-      <main>
+      <main className={"dashboard"}>
         <DashboardSchedule mode={"fasilitator"} />
 
         <DashboardMessage
