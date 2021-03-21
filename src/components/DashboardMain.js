@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/dashboardMain.css";
-import DashboardNews from "./DashboardNews";
+
 import DashboardSchedule from "./DashboardSchedule";
 import DashboardMessage from "./DashboardMessage";
 
@@ -9,8 +9,8 @@ export default function DashboardMain(props) {
   return (
     <>
       <main>
-        <DashboardNews />
         <DashboardSchedule />
+
         <DashboardMessage
           showMessage={showMessage}
           onShowMessage={onShowMessage}
@@ -18,7 +18,7 @@ export default function DashboardMain(props) {
         <div className="fab-message">
           <svg
             id="chat-icon"
-            className="fill-white mx-1 touchable"
+            className="fill-white touchable"
             width="24"
             height="24"
             viewBox="0 0 24 24"

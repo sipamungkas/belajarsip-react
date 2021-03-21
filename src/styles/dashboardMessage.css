@@ -182,3 +182,43 @@ aside.message-container .message .message-body {
     overflow-y: scroll;
   }
 }
+
+@media (min-width: 992px) {
+  .overlay-right-bg-black {
+    position: static;
+    height: fit-content;
+    width: 100%;
+    z-index: 0;
+    background-color: transparent;
+    transition: all 0.5s ease;
+    opacity: 1;
+    /* background: red; */
+  }
+
+  .show-overlay-right {
+    height: 100%;
+  }
+
+  aside.message-container {
+    position: static;
+    padding: 1rem 1rem;
+    min-height: 100%;
+    height: fit-content;
+    width: calc(100% - 1rem);
+    background-color: white;
+    z-index: 4;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    opacity: 1;
+    border-radius: 10px;
+    margin-left: 1rem;
+    /* overflow-y: scroll; */
+  }
+
+  aside.message-container.show {
+    height: calc(100% - 2rem - 48px);
+    width: auto;
+    opacity: 1;
+    overflow-y: scroll;
+  }
+}

@@ -56,6 +56,24 @@ main section .card .title {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 78%;
+    overflow-y: scroll;
+    z-index: 2;
+    display: flex;
+  }
+
+  main .schedule-container {
+    width: fit-content;
+  }
+
+  main .fab-message {
+    display: none;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

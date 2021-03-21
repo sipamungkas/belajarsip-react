@@ -1,3 +1,10 @@
+main .schedule-container {
+  width: 100%;
+}
+
+main section.schedule {
+  width: 100%;
+}
 main section.schedule .card .date-header {
   display: flex;
   flex-direction: row;
@@ -66,4 +73,10 @@ main section.schedule .card .all-schedule .first {
 
 main section.schedule .card .all-schedule .last {
   color: rgba(173, 169, 187, 1);
+}
+
+@media (min-width: 992px) {
+  main .schedule-container {
+    width: 55%;
+  }
 }
