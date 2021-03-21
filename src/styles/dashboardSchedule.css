@@ -76,9 +76,6 @@ main section.schedule .card .all-schedule .last {
 }
 
 @media (min-width: 992px) {
-  main .schedule-container {
-    width: 55%;
-  }
 }
 
 @media (min-width: 1440px) {

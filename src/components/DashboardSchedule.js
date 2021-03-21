@@ -5,14 +5,15 @@ import DashboardScheduleDate from "./DashboardScheduleDate";
 import DashboardScheduleList from "./DashboardScheduleList";
 import DashboardNews from "./DashboardNews";
 
-export default function DashboardSchedule() {
+export default function DashboardSchedule(props) {
+  const { mode } = props;
   return (
     <div className={"schedule-container"}>
       <DashboardNews />
       <section className={"schedule mt-3"}>
         <div className="card">
           <DashboardScheduleDate />
-          <DashboardScheduleList />
+          <DashboardScheduleList mode={mode} />
         </div>
       </section>
     </div>

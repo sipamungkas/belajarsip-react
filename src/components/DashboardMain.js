@@ -9,7 +9,7 @@ export default function DashboardMain(props) {
   return (
     <>
       <main>
-        <DashboardSchedule />
+        <DashboardSchedule mode={"fasilitator"} />
 
         <DashboardMessage
           showMessage={showMessage}

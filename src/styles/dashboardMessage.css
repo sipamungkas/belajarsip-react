@@ -187,7 +187,7 @@ aside.message-container .message .message-body {
   .overlay-right-bg-black {
     position: static;
     height: fit-content;
-    width: 100%;
+    width: 90%;
     z-index: 0;
     background-color: transparent;
     transition: all 0.5s ease;
