@@ -247,4 +247,64 @@ aside.left-sidebar .menu-container .menu-link.active {
 
 /* 1440 up devices */
 @media (min-width: 1440px) {
+  .overlay-bg-black {
+    background-color: transparent;
+    position: absolute;
+    padding: 2% 1%;
+    height: 100vh;
+    width: 26%;
+    border-radius: 10px;
+  }
+  .overlay-bg-black.show-overlay {
+    height: 100vh;
+    width: 26%;
+  }
+
+  aside.left-sidebar .avatar-container {
+    margin-top: 10%;
+    padding-left: 15%;
+  }
+
+  aside.left-sidebar .avatar-container img {
+    width: 30%;
+    min-width: 10rem;
+    max-height: 15rem;
+  }
+
+  aside.left-sidebar .avatar-container .avatar-name {
+    font-family: Roboto;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  aside.left-sidebar .avatar-container .avatar-status {
+    font-family: Roboto;
+    font-size: 1.4rem;
+  }
+
+  aside.left-sidebar .menu-container {
+    margin-top: 24%;
+  }
+
+  aside.left-sidebar .menu-container .menu-link {
+    padding-left: 10%;
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.6s ease;
+  }
+
+  aside.left-sidebar.show-sidebar .menu-link {
+    opacity: 1;
+  }
+
+  aside.left-sidebar .menu-container svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 10%;
+  }
+
+  aside.left-sidebar .menu-container .menu-link {
+    font-size: 1.5rem;
+  }
 }

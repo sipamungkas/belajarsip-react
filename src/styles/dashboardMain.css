@@ -82,4 +82,14 @@ main section .card .title {
 
 /* 1440 up devices */
 @media (min-width: 1440px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 74%;
+    overflow-y: scroll;
+    z-index: 2;
+    display: flex;
+  }
 }
