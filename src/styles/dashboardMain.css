@@ -26,6 +26,31 @@ main section .card .title {
     bottom: 0;
     width: 72%;
     overflow-y: scroll;
+    z-index: 2;
+  }
+
+  main .fab-message {
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+    z-index: 3;
+    background-color: var(--blue);
+    padding: 0.7rem;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 10%;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+
+  main .fab-message:hover {
+    background-color: var(--dark-blue);
+  }
+
+  main .fab-message svg {
+    max-height: 2rem;
+    max-width: 2rem;
   }
 }
 
