@@ -15,6 +15,7 @@ import MyClass from "./pages/MyClass";
 import MyClassDetail from "./pages/MyClassDetail";
 import ActivityFasilitator from "./pages/ActivityFasilitator";
 import MyClassDetailFasilitator from "./pages/MyClassDetailFasilitator";
+import Profile from "./pages/Profile";
 
 const AppRouter = () => {
   return (
@@ -45,6 +46,7 @@ const AppRouter = () => {
         exact
         component={MyClassDetailFasilitator}
       ></Route>
+      <Route path="/dashboard/profile" exact component={Profile}></Route>
     </BrowserRouter>
   );
 };
