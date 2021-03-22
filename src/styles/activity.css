@@ -1,0 +1,380 @@
+main.activity {
+  height: 100%;
+  padding: 2% 1%;
+}
+
+main.activity .card,
+main.activity table.my-class-table {
+  width: 100%;
+}
+main.activity table.my-class-table thead tr,
+main.activity table.new-class-table thead tr {
+  line-height: 3rem;
+  font-size: 0.9rem;
+}
+
+main.activity table.my-class-table .table-category,
+main.activity table.my-class-table .table-description,
+main.activity table.my-class-table .table-status,
+main.activity table.new-class-table .table-category,
+main.activity table.new-class-table .table-level,
+main.activity table.new-class-table .table-description,
+main.activity table.new-class-table .table-status {
+  display: none;
+}
+
+main.activity table.my-class-table tbody tr {
+  vertical-align: middle;
+  background-color: white;
+  border-bottom: 3px solid var(--light-blue);
+}
+
+main.activity table.my-class-table tbody tr th {
+  text-align: center;
+  /* padding-bottom: 0; */
+}
+
+main.activity table.my-class-table tbody tr th {
+  padding-bottom: 0;
+}
+
+main.activity table.my-class-table thead tr th:first-child,
+main.activity table.my-class-table tbody tr th:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 0 0.9rem;
+  vertical-align: middle;
+}
+
+main.activity table.my-class-table thead tr th:not(.table-title),
+main.activity table.new-class-table thead tr th:not(.table-title) {
+  text-align: center;
+}
+main.activity table.my-class-table tbody tr td:not(.table-title),
+main.activity table.new-class-table tbody tr td:not(.table-title) {
+  text-align: center;
+}
+
+main.activity .search-filter {
+  padding: 8px 15px 8px 15px;
+  background-color: rgba(238, 238, 238, 1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: Roboto;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+main.activity .search-filter select {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+/* new class table */
+main.activity table.new-class-table tbody tr td:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+main.activity table.my-class-table tbody tr td:last-child,
+main.activity table.new-class-table tbody tr td:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+main.activity table tbody tr td,
+main.activity table tbody tr th {
+  /* background-color: red; */
+  padding: 5px;
+  font-size: 0.8rem;
+  vertical-align: middle;
+}
+
+main.activity table.my-class-table .perfect {
+  background-image: linear-gradient(var(--light-blue), white);
+}
+
+.badge-ongoing {
+  background-color: rgba(210, 222, 237, 1);
+  font-family: Montserrat;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+main.activity table.my-class-table tbody tr td .score {
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(81, 231, 43, 1);
+}
+
+main.activity .card .card-body .view-all {
+  font-family: Montserrat;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+main.activity input::placeholder {
+  font-family: Montserrat;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+main.activity table.new-class-table tbody tr {
+  /* margin-top: 10px; */
+  /* box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1); */
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  /* margin: 5px; */
+  /* background-color: red; */
+  /* border-bottom: 3px solid rgba(0, 0, 0, 0.1); */
+  /* border-left: 3px solid var(--light-blue);
+    border-right: 3px solid var(--light-blue); */
+}
+
+main.activity table.new-class-table tbody tr td {
+  padding: 10px;
+}
+
+main.activity table.new-class-table tbody tr td.table-register {
+  padding: 0;
+}
+
+main .pagination-container {
+  font-family: Montserrat;
+  margin-left: 3px;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 500;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+main .pagination-container .table-page {
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  font-size: 0.7rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+main .pagination-container .page-number {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .pagination-container .page-number .table-page:not(.active) {
+  display: none;
+}
+
+main .pagination-container .table-page:first-child img {
+  transform: rotate(180deg);
+}
+
+main .pagination-container .table-page:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+main .pagination-container .table-page img {
+  height: 50%;
+}
+
+main .pagination-container .active {
+  background-color: var(--blue);
+  color: white;
+}
+
+main.activity .btn-register {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  main.activity {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 72%;
+    overflow-y: scroll;
+    z-index: 2;
+  }
+
+  main.activity table.my-class-table .table-description,
+  main.activity table.my-class-table .table-status,
+  main.activity table.new-class-table .table-description,
+  main.activity table.new-class-table .table-level,
+  main.activity table.new-class-table .table-status {
+    display: table-cell;
+  }
+
+  main .pagination-container .page-number .table-page:not(.active) {
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) {
+  main.activity {
+    width: 78%;
+  }
+
+  main.activity table.my-class-table .table-category,
+  main.activity table.new-class-table .table-category {
+    display: table-cell;
+  }
+
+  main.activity table.my-class-table thead tr,
+  main.activity table.new-class-table thead tr {
+    line-height: 3rem;
+    font-size: 0.9rem;
+  }
+
+  main.activity .search-filter {
+    font-size: 0.9rem;
+  }
+
+  /* new class table */
+  main.activity table.new-class-table tbody tr td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  main.activity table tbody tr td,
+  main.activity table tbody tr th {
+    /* background-color: red; */
+
+    font-size: 1rem;
+  }
+
+  .badge-ongoing {
+    font-size: 0.9rem;
+  }
+
+  main.activity table.my-class-table tbody tr td .score {
+    font-size: 1.7rem;
+  }
+
+  main.activity .card .card-body .view-all {
+    font-family: Montserrat;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  main.activity input::placeholder {
+    font-size: 0.9rem;
+  }
+
+  main.activity table.new-class-table tbody tr {
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  main.activity table.new-class-table tbody tr td {
+    padding: 1rem;
+  }
+
+  main .pagination-container {
+    font-size: 0.8rem;
+  }
+
+  main .pagination-container .table-page {
+    font-size: 0.8rem;
+  }
+
+  main.activity .btn-register {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  main.activity {
+    width: 74%;
+  }
+
+  main.activity h1 {
+    font-size: 2rem;
+  }
+
+  main.activity .card .card-header {
+    font-size: 1.5rem;
+  }
+
+  main.activity table.my-class-table thead tr,
+  main.activity table.new-class-table thead tr {
+    line-height: 3rem;
+    font-size: 1.3rem;
+  }
+
+  main.activity .search-filter {
+    font-size: 1.2rem;
+  }
+
+  /* new class table */
+  main.activity table.new-class-table tbody tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  main.activity table tbody tr td,
+  main.activity table tbody tr th {
+    /* background-color: red; */
+
+    font-size: 1.2rem;
+  }
+
+  .badge-ongoing {
+    font-size: 1.1rem;
+  }
+
+  main.activity table.my-class-table tbody tr td .score {
+    font-size: 2rem;
+  }
+
+  main.activity .card .card-body .view-all {
+    font-size: 1.1rem;
+  }
+
+  main.activity input::placeholder {
+    font-size: 1.2rem;
+  }
+
+  main.activity table.new-class-table tbody tr {
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  }
+
+  main.activity table.new-class-table tbody tr td {
+    padding: 1.1rem;
+  }
+
+  main .pagination-container {
+    font-size: 1rem;
+  }
+
+  main .pagination-container .table-page {
+    font-size: 1rem;
+  }
+
+  main.activity .btn-register {
+    font-size: 1.2rem;
+  }
+}
