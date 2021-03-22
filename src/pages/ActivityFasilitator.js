@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../styles/activityFasilitator.css";
 import MyClassFasilitatorItem from "../components/MyClassFasilitatorItem";
-import NewClassItem from "../components/NewClassItem";
 import ActivityTitle from "../components/ActivityTitle";
 
 export default class Activity extends Component {

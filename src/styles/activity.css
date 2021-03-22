@@ -368,6 +368,34 @@ main.activity table.new-class-table tbody tr td .score {
   color: rgba(151, 151, 151, 1);
 }
 
+.horizontal-progress-container {
+  width: 90%;
+  padding: 0 2rem;
+}
+
+.horizontal-progress-container span {
+  font-family: Montserrat;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.horizontal-background {
+  position: relative;
+  height: 7px;
+  background-color: rgba(196, 196, 196, 1);
+}
+
+.horizontal-progress {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(87, 132, 186, 1);
+}
+
 /* very small device resolution */
 @media (max-width: 375px) {
   /* activity 3 class detail */

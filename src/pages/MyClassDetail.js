@@ -4,7 +4,6 @@ import ActivityTitle from "../components/ActivityTitle";
 import Sidebar from "../components/Sidebar";
 import MyClassDescription from "../components/MyClassDescription";
 import MyClassProgress from "../components/MyClassProgress";
-import CoverDescription from "../components/CoverDescription";
 
 export default class MyClassDetail extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ export default class MyClassDetail extends Component {
       title: "Front-end fundamentals",
       category: "Software",
       description: "Learn the fundamentals of front end...",
-      progress: "80",
+      progress: "90",
       status: "completed",
       score: 88,
       cover: "class-detail-cover.png",
@@ -106,6 +105,24 @@ export default class MyClassDetail extends Component {
     return <MyClassDescription courses={course} />;
   };
 
+  renderProgressBar = (course) => {
+    const { tabIndex } = this.state;
+    if (tabIndex === 2) {
+      return (
+        <div class="horizontal-progress-container flex-grow-1 mb-4 mb-md-4">
+          <span>{course.progress || "0"}% to complete</span>
+          <div class="horizontal-background" style={{ width: "100%" }}>
+            <span
+              class="horizontal-progress"
+              style={{ width: `${course.progress}%` }}
+            ></span>
+          </div>
+        </div>
+      );
+    }
+    return "";
+  };
+
   changeTabHandler = (tabIndex) => {
     this.setState({ tabIndex });
   };
@@ -160,6 +177,7 @@ export default class MyClassDetail extends Component {
                   </div>
                   {this.renderScore(course)}
                 </div>
+                {this.renderProgressBar(course)}
               </div>
             </div>
             <div className="tab-menu-container">
