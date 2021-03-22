@@ -11,6 +11,7 @@ import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import DashboardFU from "./pages/DashboardFU";
 import Activity from "./pages/Activity";
+import MyClass from "./pages/MyClass";
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,11 @@ const AppRouter = () => {
       <Route path="/dashboard/" exact component={Dashboard} />
       <Route path="/dashboard/for-you" exact component={DashboardFU}></Route>
       <Route path="/dashboard/activity" exact component={Activity}></Route>
+      <Route
+        path="/dashboard/activity/my-class"
+        exact
+        component={MyClass}
+      ></Route>
     </BrowserRouter>
   );
 };

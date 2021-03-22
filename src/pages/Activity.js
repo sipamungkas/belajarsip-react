@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../styles/activity.css";
+import MyClassItem from "../components/MyClassItem";
+import NewClassItem from "../components/NewClassItem";
 
 export default class Activity extends Component {
   constructor() {
@@ -14,6 +16,58 @@ export default class Activity extends Component {
   setShowMessage = () => {
     this.setState({ showMessage: !this.state.showMessage });
   };
+
+  courseList = [
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      progress: "80",
+      status: "ongoing",
+      score: 100,
+    },
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      progress: "80",
+      status: "ongoing",
+      score: 88,
+    },
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      progress: "80",
+      status: "ongoing",
+      score: 88,
+    },
+  ];
+
+  newCourseList = [
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      level: "Beginner",
+      price: 0,
+    },
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      level: "Beginner",
+      price: 0,
+    },
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      level: "Beginner",
+      price: 0,
+    },
+  ];
+
   render() {
     return (
       <>
@@ -52,58 +106,9 @@ export default class Activity extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope=" row">
-                        <input type="checkbox" name="" id="" />
-                      </th>
-                      <td className="table-title td-truncate">
-                        Front-end fundamentals
-                      </td>
-                      <td className="table-category">Software</td>
-                      <td className="td-truncate table-description">
-                        Learn the fundamentals of front...
-                      </td>
-                      <td>
-                        <div className="single-chart m-0">
-                          <svg
-                            viewBox="0 0 36 36"
-                            className="circular-chart blue m-0"
-                          >
-                            <path
-                              className="circle-bg"
-                              d="M18 2.0845
-                                                a 15.9155 15.9155 0 0 1 0 31.831
-                                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                            />
-                            <path
-                              className="circle"
-                              strokeDasharray="80, 100"
-                              d="M18 2.0845
-                                                a 15.9155 15.9155 0 0 1 0 31.831
-                                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                            />
-                            <text x="18" y="21" className="percentage">
-                              80%
-                            </text>
-                          </svg>
-                        </div>
-                      </td>
-                      <td className="table-status">
-                        <span className="badge badge-ongoing p-2 rounded-15px">
-                          Ongoing
-                        </span>
-                      </td>
-                      <td>
-                        <span className="score">88</span>
-                      </td>
-                      <td>
-                        <img
-                          src="/assets/images/icons/list-icon.svg"
-                          className="touchable"
-                          alt=""
-                        />
-                      </td>
-                    </tr>
+                    {this.courseList.map((course, index) => (
+                      <MyClassItem key={index} course={course} />
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -183,25 +188,9 @@ export default class Activity extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td className={"table-title td-truncate"}>
-                        Know more Javascript
-                      </td>
-                      <td className="table-category">Software</td>
-                      <td className="td-truncate table-description">
-                        Javascript from the basic for human being
-                      </td>
-                      <td className={"table-level"}>Beginner</td>
-                      <td>Free</td>
-                      <td className={"table-register"}>
-                        <Link to={""} className="badge btn-register">
-                          Register
-                        </Link>{" "}
-                      </td>
-                      <td>
-                        <img src="/assets/images/icons/list-icon.svg" alt="" />
-                      </td>
-                    </tr>
+                    {this.newCourseList.map((course, index) => (
+                      <NewClassItem key={index} course={course} />
+                    ))}
                   </tbody>
                 </table>
               </div>
