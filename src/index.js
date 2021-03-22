@@ -13,6 +13,7 @@ import DashboardFU from "./pages/DashboardFU";
 import Activity from "./pages/Activity";
 import MyClass from "./pages/MyClass";
 import MyClassDetail from "./pages/MyClassDetail";
+import ActivityFasilitator from "./pages/ActivityFasilitator";
 
 const AppRouter = () => {
   return (
@@ -32,6 +33,11 @@ const AppRouter = () => {
         path="/dashboard/activity/my-class/:id"
         exact
         component={MyClassDetail}
+      ></Route>
+      <Route
+        path="/dashboard/activity-fasilitator"
+        exact
+        component={ActivityFasilitator}
       ></Route>
     </BrowserRouter>
   );

@@ -1,0 +1,86 @@
+main.activity table.my-class-table.fasilitator tbody tr th,
+main.activity table.my-class-table.fasilitator tbody tr td {
+  line-height: 3rem;
+}
+
+main.activity .form-activity {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+main.activity .form-activity .form-side {
+  display: flex;
+  flex-direction: column;
+}
+
+main.activity .form-activity .form-row {
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+main.activity .form-activity .activity-input {
+  outline: none;
+  border: none;
+}
+
+main.activity .card .form-activity select {
+  background: white;
+  height: 1.25rem;
+  border: 1px solid black;
+}
+
+main.activity .card .form-activity textarea {
+  background: rgba(235, 235, 235, 1);
+}
+
+main.activity .card .form-activity .button-create-class {
+  width: 100%;
+}
+
+main.activity .card .form-activity .button-create-class .create-class {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  main.activity .card .form-activity .button-create-class {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  main.activity .card .form-activity .button-create-class .create-class {
+    width: 25%;
+  }
+}
+
+@media (min-width: 992px) {
+  main.activity .form-activity {
+    font-size: 1.1rem;
+  }
+
+  main.activity .card .form-activity select {
+    background: white;
+    height: 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  main.activity .form-activity {
+    padding: 2rem;
+  }
+
+  main.activity .form-activity,
+  main.activity .form-activity ::placeholder {
+    font-size: 1.4rem;
+  }
+
+  main.activity .card .form-activity .form-side {
+    flex: 1;
+  }
+
+  main.activity .card .form-activity select {
+    background: white;
+    height: 2rem;
+  }
+}

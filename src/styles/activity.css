@@ -14,6 +14,7 @@ main.activity .card,
 main.activity table.my-class-table {
   width: 100%;
 }
+
 main.activity table.my-class-table thead tr,
 main.activity table.new-class-table thead tr {
   line-height: 3rem;
