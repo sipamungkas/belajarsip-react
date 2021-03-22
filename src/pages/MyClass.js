@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import MyClassItem from "../components/MyClassItem";
 import Sidebar from "../components/Sidebar";
 import ActivityTitle from "../components/ActivityTitle";
@@ -18,6 +17,7 @@ export default class MyClass extends Component {
 
   courseList = [
     {
+      id: 1,
       title: "Front-end fundamentals",
       category: "Software",
       description: "Learn the fundamentals of front end...",
@@ -27,6 +27,7 @@ export default class MyClass extends Component {
     },
 
     {
+      id: 2,
       title: "Front-end fundamentals",
       category: "Software",
       description: "Learn the fundamentals of front end...",
@@ -36,6 +37,7 @@ export default class MyClass extends Component {
     },
 
     {
+      id: 3,
       title: "Front-end fundamentals",
       category: "Software",
       description: "Learn the fundamentals of front end...",
@@ -106,7 +108,15 @@ export default class MyClass extends Component {
                 </thead>
                 <tbody>
                   {this.courseList.map((course, index) => (
-                    <MyClassItem key={index} course={course} />
+                    <MyClassItem
+                      key={index}
+                      onClickHandler={() =>
+                        this.props.history.push(
+                          `/dashboard/activity/my-class/${course?.id ?? ""}`
+                        )
+                      }
+                      course={course}
+                    />
                   ))}
                 </tbody>
               </table>

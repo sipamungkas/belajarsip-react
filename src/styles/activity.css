@@ -138,15 +138,8 @@ main.activity input::placeholder {
 }
 
 main.activity table.new-class-table tbody tr {
-  /* margin-top: 10px; */
-  /* box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1); */
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  /* margin: 5px; */
-  /* background-color: red; */
-  /* border-bottom: 3px solid rgba(0, 0, 0, 0.1); */
-  /* border-left: 3px solid var(--light-blue);
-    border-right: 3px solid var(--light-blue); */
 }
 
 main.activity table.new-class-table tbody tr td {
@@ -213,7 +206,7 @@ main .pagination-container .active {
 main.activity .btn-register {
   font-size: 0.8rem;
 }
-/* activity 3 */
+/* activity 2 my class */
 main.activity .card .sort-by-container {
   display: flex;
   flex-direction: row;
@@ -251,6 +244,103 @@ main.activity .card select {
 main.activity .card .sort-by-container .caret-container {
   height: 100%;
   /* margin-left: 10%; */
+}
+
+/* activity 3 class detail */
+
+main.activity .card .cover {
+  position: relative;
+  min-height: 150px;
+  height: 30vh;
+  border-radius: 10px;
+  /* overflow: hidden; */
+}
+
+main.activity .card .cover img.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.5;
+}
+
+main.activity .card .content {
+  margin-top: -4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: goldenrod; */
+}
+
+main.activity .card .content .category-container {
+  height: 8rem;
+  max-width: 8rem;
+  z-index: 2;
+  background: var(--blue);
+  border-radius: 10px;
+  align-self: center;
+}
+
+main.activity .card .content .category-container img {
+  height: 100%;
+  width: 100%;
+}
+main.activity .card .course-description,
+main.activity .card .content .course-misc {
+  padding: 1rem;
+}
+
+main.activity .card .content .course-title {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  margin: 1rem 1rem 0 1rem;
+  color: rgba(0, 0, 0, 1);
+}
+
+main.activity .card .content .course-misc .course-category,
+main.activity .card .content .course-misc .course-price,
+main.activity .card .content .course-misc .course-level {
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+main.activity .card .tab-menu-container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 0.7px solid rgba(0, 0, 0, 0.3);
+}
+
+main.activity .card .tab-menu-container:not(.active) {
+  color: black;
+}
+
+main.activity .card .tab-menu-container .active {
+  padding-bottom: 0;
+  border-bottom: 2px solid rgba(87, 132, 186, 1);
+  color: rgba(87, 132, 186, 1);
+}
+
+main.activity .card .content .course-misc .btn-register {
+  margin-top: 0.5rem;
+}
+
+/* very small device resolution */
+@media (max-width: 375px) {
+  /* activity 3 class detail */
+  main.activity .card .tab-menu-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 0.7px solid rgba(0, 0, 0, 0.3);
+  }
 }
 
 @media (min-width: 768px) {
@@ -298,6 +388,33 @@ main.activity .card .sort-by-container .caret-container {
 
   main.activity .card .sort-by-container .sort-by-text {
     font-size: 0.9rem;
+  }
+
+  /* activity 3 class detail */
+
+  main.activity .card .content .course-title {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    margin: 1rem 2rem 0 2rem;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  main.activity .card .course-description,
+  main.activity .card .content .course-misc {
+    padding: 1rem 2rem;
+  }
+
+  main.activity .card .tab-menu-container {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: 0.7px solid rgba(0, 0, 0, 0.3);
+  }
+
+  main.activity .card .tab-menu-container .tab-menu {
+    margin-right: 1rem;
   }
 }
 
@@ -401,6 +518,88 @@ main.activity .card .sort-by-container .caret-container {
 
   main.activity .card .sort-by-container .sort-by-text {
     font-size: 1.1rem;
+  }
+
+  /* activity 3 class detail */
+  main.activity .card .cover {
+    min-height: 250px;
+  }
+
+  main.activity .card .cover img.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+  }
+
+  main.activity .card .content {
+    position: relative;
+    margin-top: -6rem;
+    left: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    z-index: 2;
+    /* background: goldenrod; */
+  }
+
+  main.activity .card .content .category-container {
+    position: relative;
+
+    height: 10rem;
+    max-width: 10rem;
+    margin-bottom: 2rem;
+  }
+
+  main.activity .card .content .course-misc {
+    display: flex;
+    left: 0;
+    padding-top: 1rem;
+    padding-left: 2rem;
+  }
+
+  main.activity .card .course-description {
+    padding: 2rem;
+  }
+
+  main.activity .card .content .course-title {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  main.activity .card .content .course-misc .course-category,
+  main.activity .card .content .course-misc .course-price,
+  main.activity .card .content .course-misc .course-level {
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin-right: 1rem;
+  }
+
+  main.activity .card .content .course-misc .btn-register {
+    position: relative;
+    margin-top: -1rem;
+    height: 2rem;
+  }
+
+  main.activity .card .tab-menu-container {
+    font-size: 1.2rem;
+    border-bottom: 0.7px solid rgba(0, 0, 0, 0.3);
+  }
+
+  main.activity .card .tab-menu-container:not(.active) {
+    color: black;
+  }
+
+  main.activity .card .tab-menu-container .active {
+    padding-bottom: 0;
+    border-bottom: 2px solid rgba(87, 132, 186, 1);
+    color: rgba(87, 132, 186, 1);
   }
 }
 

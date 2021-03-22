@@ -4,7 +4,10 @@ import PropTypes from "prop-types";
 export default function MyClassItem(props) {
   const { course } = props;
   return (
-    <tr className={course.score === 100 ? "perfect" : ""}>
+    <tr
+      className={course.score === 100 ? "perfect" : ""}
+      onClick={props.onClickHandler}
+    >
       <th scope=" row">
         <input type="checkbox" name="" id="" />
       </th>
