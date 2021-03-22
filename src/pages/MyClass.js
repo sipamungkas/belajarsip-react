@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MyClassItem from "../components/MyClassItem";
 import Sidebar from "../components/Sidebar";
+import ActivityTitle from "../components/ActivityTitle";
 
 export default class MyClass extends Component {
   constructor() {
@@ -49,16 +50,7 @@ export default class MyClass extends Component {
       <>
         <Sidebar onShowMessage={() => this.setShowMessage} />
         <main className="activity">
-          <h1 className="d-flex align-items-center">
-            <Link to="/dashboard/activity">
-              <img
-                className="rotate-180"
-                src="/assets/images/icons/forward-icon.svg"
-                alt="prev page"
-              />
-            </Link>
-            My Class
-          </h1>
+          <ActivityTitle title={"My Class"} back={true} />
           <div className="card bg-transparent border-0 p-0">
             <div className="card-header bg-transparent border-0 col-12 col-md-12 col-lg-12 p-0 my-4 my-md-4 my-lg-2 ">
               <div className="d-flex flex-row justify-content-between row">

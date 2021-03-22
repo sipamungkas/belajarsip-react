@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import "../styles/activity.css";
 import MyClassItem from "../components/MyClassItem";
 import NewClassItem from "../components/NewClassItem";
+import ActivityTitle from "../components/ActivityTitle";
 
 export default class Activity extends Component {
   constructor() {
@@ -73,7 +74,7 @@ export default class Activity extends Component {
       <>
         <Sidebar onShowMessage={() => this.setShowMessage} />
         <main className={"activity"}>
-          <h1 className="">Activity</h1>
+          <ActivityTitle title={"Activity"} back={false} />
           <div className="card bg-transparent border-0 p-0">
             <div className="card-header bg-transparent border-0">My Class</div>
             <div className="card-body p-0 mt-0">
