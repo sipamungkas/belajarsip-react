@@ -302,7 +302,8 @@ main.activity .card .content .course-title {
 
 main.activity .card .content .course-misc .course-category,
 main.activity .card .content .course-misc .course-price,
-main.activity .card .content .course-misc .course-level {
+main.activity .card .content .course-misc .course-level,
+main.activity .card .content .your-score {
   font-size: 0.9rem;
   font-style: normal;
   font-weight: 500;
@@ -330,6 +331,40 @@ main.activity .card .tab-menu-container .active {
 
 main.activity .card .content .course-misc .btn-register {
   margin-top: 0.5rem;
+}
+
+main.activity .card .content .your-score {
+  position: relative;
+  margin-left: 4rem;
+  margin-top: -4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+main.activity .card .content .your-score .score {
+  font-family: Montserrat;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(81, 231, 43, 1);
+}
+
+main.activity table.new-class-table tbody tr td .score {
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(81, 231, 43, 1);
+}
+
+.completed-progress {
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(151, 151, 151, 1);
 }
 
 /* very small device resolution */
@@ -603,6 +638,41 @@ main.activity .card .content .course-misc .btn-register {
     padding-bottom: 0;
     border-bottom: 2px solid rgba(87, 132, 186, 1);
     color: rgba(87, 132, 186, 1);
+  }
+
+  main.activity .card .content .your-score {
+    position: relative;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: -3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main.activity .card .content .your-score .score {
+    font-size: 3rem;
+  }
+
+  /* activity 4 */
+  main.activity table.new-class-table tbody tr td {
+    font-size: 1.1rem;
+  }
+  main.activity table.new-class-table tbody tr td .score {
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    color: rgba(81, 231, 43, 1);
+  }
+
+  .completed-progress {
+    font-family: Montserrat;
+    font-style: italic;
+    font-weight: 500;
+    text-align: left;
+    color: rgba(151, 151, 151, 1);
   }
 }
 

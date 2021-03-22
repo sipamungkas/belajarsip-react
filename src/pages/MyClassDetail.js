@@ -1,14 +1,16 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import ActivityTitle from "../components/ActivityTitle";
 import Sidebar from "../components/Sidebar";
 import MyClassDescription from "../components/MyClassDescription";
-import { Link } from "react-router-dom";
+import MyClassProgress from "../components/MyClassProgress";
+import CoverDescription from "../components/CoverDescription";
 
 export default class MyClassDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabIndex: 1,
+      tabIndex: 2,
     };
   }
   courseList = [
@@ -18,8 +20,35 @@ export default class MyClassDetail extends Component {
       category: "Software",
       description: "Learn the fundamentals of front end...",
       progress: "80",
-      status: "ongoing",
+      status: "completed",
       score: 88,
+      cover: "class-detail-cover.png",
+      progressList: [
+        {
+          title: "HTML Essential Training",
+          status: "ongoing",
+          score: 88,
+          schedule: { date: "Friday, 6 November 2020", time: "08.00 - 09.40" },
+        },
+        {
+          title: "HTML Essential Training",
+          status: "completed",
+          score: 88,
+          schedule: { date: "Friday, 6 November 2020", time: "08.00 - 09.40" },
+        },
+        {
+          title: "HTML Essential Training",
+          status: "completed",
+          score: 88,
+          schedule: { date: "Friday, 6 November 2020", time: "08.00 - 09.40" },
+        },
+        {
+          title: "HTML Essential Training",
+          status: "completed",
+          score: 88,
+          schedule: { date: "Friday, 6 November 2020", time: "08.00 - 09.40" },
+        },
+      ],
     },
 
     {
@@ -30,6 +59,7 @@ export default class MyClassDetail extends Component {
       progress: "80",
       status: "ongoing",
       score: 100,
+      cover: "class-detail-cover.png",
     },
 
     {
@@ -40,18 +70,40 @@ export default class MyClassDetail extends Component {
       progress: "80",
       status: "ongoing",
       score: 88,
+      cover: "class-detail-cover.png",
     },
   ];
 
-  renderTabContent = () => {
+  renderScore = (course) => {
+    console.log(course);
     const { tabIndex } = this.state;
     if (tabIndex === 2) {
-      return "2";
+      return (
+        <div className="your-score">
+          <span className={""}>Your Score</span>
+
+          <span className="score">{course.score ?? 0}</span>
+        </div>
+      );
+    }
+
+    return (
+      <Link to={"/"} className="badge btn-register">
+        Register
+      </Link>
+    );
+  };
+
+  renderTabContent = (course) => {
+    const { tabIndex } = this.state;
+    if (tabIndex === 2) {
+      return <MyClassProgress progressList={course.progressList} />;
     }
     if (tabIndex === 3) {
       return "3";
     }
-    return <MyClassDescription />;
+
+    return <MyClassDescription courses={course} />;
   };
 
   changeTabHandler = (tabIndex) => {
@@ -76,10 +128,12 @@ export default class MyClassDetail extends Component {
             <div className="cover">
               <img
                 className={"cover-image"}
-                src="/assets/images/class-detail-cover.png"
+                src={`/assets/images/${
+                  course?.cover ?? "class-detail-cover.png"
+                }`}
                 height={100}
                 width={100}
-                alt=""
+                alt="Cover"
               />
             </div>
             <div className="content">
@@ -100,13 +154,11 @@ export default class MyClassDetail extends Component {
                   </div>
                   <div className="course-price">
                     Price:{" "}
-                    {course?.price === 0 || course.price === undefined
+                    {course?.price === 0 || course?.price === undefined
                       ? "Free"
                       : `$${course.price}`}
                   </div>
-                  <Link to={"/"} className="badge btn-register ">
-                    Register
-                  </Link>{" "}
+                  {this.renderScore(course)}
                 </div>
               </div>
             </div>
@@ -136,7 +188,7 @@ export default class MyClassDetail extends Component {
                 Class Discussion
               </div>
             </div>
-            {this.renderTabContent()}
+            {this.renderTabContent(course)}
           </div>
         </main>
       </>
