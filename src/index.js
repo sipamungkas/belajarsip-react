@@ -14,6 +14,7 @@ import Activity from "./pages/Activity";
 import MyClass from "./pages/MyClass";
 import MyClassDetail from "./pages/MyClassDetail";
 import ActivityFasilitator from "./pages/ActivityFasilitator";
+import MyClassDetailFasilitator from "./pages/MyClassDetailFasilitator";
 
 const AppRouter = () => {
   return (
@@ -38,6 +39,11 @@ const AppRouter = () => {
         path="/dashboard/activity-fasilitator"
         exact
         component={ActivityFasilitator}
+      ></Route>
+      <Route
+        path="/dashboard/activity-fasilitator/my-class/:id"
+        exact
+        component={MyClassDetailFasilitator}
       ></Route>
     </BrowserRouter>
   );

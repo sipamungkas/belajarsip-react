@@ -1,8 +1,11 @@
 import React from "react";
 
 export default function MyClassDescription(props) {
+  const { course } = props;
   return (
     <div className="course-description">
+      {/* {course.descriptionItem || "No Description about this course"} */}
+
       <h3>Description</h3>
       <br />
       <p>
