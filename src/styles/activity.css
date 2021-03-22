@@ -206,6 +206,45 @@ main .pagination-container .active {
 main.activity .btn-register {
   font-size: 0.8rem;
 }
+/* activity 3 */
+main.activity .card .sort-by-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 100%;
+  width: fit-content;
+}
+
+main.activity .card .sort-by-container .sort-by-text {
+  font-family: Montserrat;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(154, 154, 154, 1);
+  white-space: nowrap;
+}
+
+main.activity .card select {
+  font-family: Montserrat;
+  font-size: 90%;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+/* main.activity .card .sort-by-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+} */
+
+main.activity .card .sort-by-container .caret-container {
+  height: 100%;
+  /* margin-left: 10%; */
+}
 
 @media (min-width: 768px) {
   main.activity {
@@ -228,6 +267,30 @@ main.activity .btn-register {
 
   main .pagination-container .page-number .table-page:not(.active) {
     display: flex;
+  }
+
+  /* activity 2 my class */
+
+  main.activity .card input.my-class-search {
+    height: 2.25rem;
+    margin: 0;
+  }
+
+  main.activity .card input.my-class-search::placeholder {
+    font-size: 0.9rem;
+  }
+
+  main.activity .card button.search {
+    height: 2.25rem;
+    font-size: 0.9rem;
+  }
+
+  main.activity .card .sort-by-container {
+    width: fit-content;
+  }
+
+  main.activity .card .sort-by-container .sort-by-text {
+    font-size: 0.9rem;
   }
 }
 
@@ -303,6 +366,35 @@ main.activity .btn-register {
   main.activity .btn-register {
     font-size: 0.9rem;
   }
+
+  /* activity 2 my class */
+
+  main.activity .card input.my-class-search {
+    height: 2.75rem;
+    margin: 0;
+  }
+
+  main.activity .card input.my-class-search::placeholder {
+    font-size: 1rem;
+  }
+
+  main.activity .card button.search {
+    height: 2.75rem;
+    font-size: 1rem;
+  }
+
+  main.activity .card .sort-by-container {
+    width: fit-content;
+    padding: 0 1rem;
+  }
+
+  main.activity .card .sort-by-container select {
+    font-size: 1.2rem;
+  }
+
+  main.activity .card .sort-by-container .sort-by-text {
+    font-size: 1.1rem;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -376,5 +468,20 @@ main.activity .btn-register {
 
   main.activity .btn-register {
     font-size: 1.2rem;
+  }
+
+  /* activity 2 my class */
+  main.activity .card input.my-class-search {
+    height: 3rem;
+    margin: 0;
+  }
+
+  main.activity .card input.my-class-search::placeholder {
+    font-size: 1rem;
+  }
+
+  main.activity .card button.search {
+    height: 2.9rem;
+    font-size: 1rem;
   }
 }

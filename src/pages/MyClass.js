@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import MyClassItem from "../components/MyClassItem";
 import Sidebar from "../components/Sidebar";
 
 export default class MyClass extends Component {
@@ -13,6 +14,36 @@ export default class MyClass extends Component {
   setShowMessage = () => {
     this.setState({ showMessage: !this.state.showMessage });
   };
+
+  courseList = [
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      progress: "80",
+      status: "ongoing",
+      score: 88,
+    },
+
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      progress: "80",
+      status: "ongoing",
+      score: 100,
+    },
+
+    {
+      title: "Front-end fundamentals",
+      category: "Software",
+      description: "Learn the fundamentals of front end...",
+      progress: "80",
+      status: "ongoing",
+      score: 88,
+    },
+  ];
+
   render() {
     return (
       <>
@@ -31,19 +62,19 @@ export default class MyClass extends Component {
           <div className="card bg-transparent border-0 p-0">
             <div className="card-header bg-transparent border-0 col-12 col-md-12 col-lg-12 p-0 my-4 my-md-4 my-lg-2 ">
               <div className="d-flex flex-row justify-content-between row">
-                <div className="d-flex flex-row justify-content-between col-10 col-md-8">
+                <div className="d-flex flex-row justify-content-between align-items-center col-12 col-md-8">
                   <input
                     type="text"
-                    className="form-control rounded-5px"
+                    className={"form-control rounded-5px my-class-search"}
                     placeholder="Quick Search"
                     aria-label="Quick Search"
                   />
-                  <button className="btn btn-primary-color text-xs mx-2">
+                  <button className="btn bg-primary-blue text-xs my-0 mx-2 text-white search">
                     Search
                   </button>
                 </div>
                 <div className="col-12 col-md-4">
-                  <div className="sort-by-container float-start float-md-end float-lg-end my-2 my-md-0 my-lg-0 rounded-5px px-3">
+                  <div className="sort-by-container float-start float-md-end float-lg-end my-2 my-md-0 my-lg-0 rounded-5px px-2">
                     <span className="sort-by-text border-0 w-100">
                       sort by:
                     </span>
@@ -82,61 +113,9 @@ export default class MyClass extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="perfect">
-                    <th scope=" row">
-                      <input type="checkbox" name="" id="" defaultChecked />
-                    </th>
-                    <td>Algebra</td>
-                    <td className="table-category">Math</td>
-                    <td className="td-truncate table-description">
-                      Branch of mathematics dealing with any calculation
-                    </td>
-                    <td>
-                      <div className="single-chart">
-                        <svg
-                          viewBox="0 0 36 36"
-                          className="circular-chart blue m-0"
-                        >
-                          <path
-                            className="circle-bg"
-                            d="M18 2.0845
-                                                    a 15.9155 15.9155 0 0 1 0 31.831
-                                                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                          />
-                          <path
-                            className="circle"
-                            strokeDasharray="80, 100"
-                            d="M18 2.0845
-                                                    a 15.9155 15.9155 0 0 1 0 31.831
-                                                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                          />
-                          <text x="18" y="20.35" className="percentage">
-                            80%
-                          </text>
-                        </svg>
-                      </div>
-                    </td>
-                    <td className="table-status">
-                      <span className="badge badge-ongoing p-2 rounded-15px">
-                        Ongoing
-                      </span>
-                    </td>
-                    <td>
-                      <span
-                        className="score"
-                        style={{ color: "rgba(43, 231, 208, 1)" }}
-                      >
-                        100
-                      </span>
-                    </td>
-                    <td>
-                      <img
-                        src="assets/images/icons/list-icon.svg"
-                        className="touchable"
-                        alt=""
-                      />
-                    </td>
-                  </tr>
+                  {this.courseList.map((course, index) => (
+                    <MyClassItem key={index} course={course} />
+                  ))}
                 </tbody>
               </table>
               <div className="pagination-container d-flex flex-row justify-content-between align-items-center">
