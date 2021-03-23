@@ -51,7 +51,6 @@ const AppRouter = () => {
         component={MyClassDetailFasilitator}
       ></Route>
       <Route path="/dashboard/profile" exact component={Profile}></Route>
-      <Route component={Login}></Route>
     </BrowserRouter>
   );
 };
