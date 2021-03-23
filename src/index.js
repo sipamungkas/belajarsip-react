@@ -10,7 +10,6 @@ import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import DashboardFU from "./pages/DashboardFU";
-import Activity from "./pages/Activity";
 import DashboardActivity from "./pages/DashboardActivity";
 import MyClass from "./pages/MyClass";
 import MyClassDetail from "./pages/MyClassDetail";

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import ActivityTitle from "../components/ActivityTitle";
 import Sidebar from "../components/Sidebar";
 import MyClassDescription from "../components/MyClassDescription";
 import MyClassProgress from "../components/MyClassProgress";
 import MyClassMember from "../components/MyClassMember";
-import MyClassMemberItem from "../components/MyClassMemberItem";
 
 export default class MyClassDetailFasilitator extends Component {
   constructor(props) {
