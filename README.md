@@ -45,3 +45,19 @@ git clone https://github.com/sipamungkas/belajarsip-bootstrap5-template.git
 ```
 
 ## Screenshots
+
+#### Profile page
+
+![Profile Page](docs/images/profile.png)
+
+#### Dashboard page
+
+![Profile Page](docs/images/dashboard-1.png)
+
+#### Activity page
+
+![Profile Page](docs/images/activity-1.png)
+
+#### Activity My Class page
+
+![Profile Page](docs/images/activity-my-class.png)
