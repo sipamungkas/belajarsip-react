@@ -4,8 +4,10 @@ import "../styles/sidebar.css";
 
 export default function Sidebar(props) {
   const [show, setShow] = useState(false);
-  const { onShowMessage } = props;
+  const { onShowMessage, user } = props;
+  console.log(user, "user");
   const isDashboard = useRouteMatch("/dashboard").isExact;
+  const isActivity = useRouteMatch("/dashboard/activity");
   return (
     <>
       <nav className="navbar sticky-top bg-primary-blue d-block d-md-none">
@@ -62,7 +64,10 @@ export default function Sidebar(props) {
         onClick={() => setShow(!show)}
       >
         <aside className={`left-sidebar  ${show ? "show-sidebar" : ""}`}>
-          <div className="avatar-container">
+          <Link
+            to={{ pathname: "/dashboard/profile", state: { user } }}
+            className="avatar-container"
+          >
             <svg
               id="sidebar-notification"
               width="10%"
@@ -84,12 +89,15 @@ export default function Sidebar(props) {
               alt={"avatar"}
             />
             <div className="d-flex flex-column">
-              <span className="avatar-name text-white">Emir Kharisma</span>
+              <span className="avatar-name text-white">{"Emir Kharisma"}</span>
               <span className="avatar-status mt-1 text-white">Online</span>
             </div>
-          </div>
+          </Link>
           <div className="menu-container">
-            <Link to="/dashboard" className="menu-link active">
+            <Link
+              to={{ pathname: "/dashboard", state: { user } }}
+              className={`menu-link ${isDashboard ? "active" : ""}`}
+            >
               <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3.75 17.5V3.75H14.375V17.5H3.75Z" />
                 <path d="M15.625 14.375V3.75H26.25V14.375H15.625Z" />
@@ -98,7 +106,10 @@ export default function Sidebar(props) {
               </svg>
               Dashboard
             </Link>
-            <Link to="/dashboard/activity" className="menu-link">
+            <Link
+              to={{ pathname: "/dashboard/activity", state: { user } }}
+              className={`menu-link ${isActivity ? "active" : ""}`}
+            >
               <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.13086 5H22.1934V6.21094H8.13086V5Z" />
                 <path d="M22.9744 7.1875H8.02129C7.82192 7.18467 7.62518 7.1415 7.44295 7.06057C7.26072 6.97965 7.09676 6.86265 6.96097 6.71664C6.82518 6.57063 6.72038 6.39863 6.65287 6.21102C6.58536 6.0234 6.55654 5.82405 6.56817 5.625C6.5672 5.22887 6.71672 4.84716 6.98649 4.55709C7.25626 4.26701 7.62613 4.09023 8.02129 4.0625H22.9744C23.1816 4.0625 23.3803 3.98019 23.5268 3.83368C23.6734 3.68716 23.7557 3.48845 23.7557 3.28125C23.7557 3.07405 23.6734 2.87534 23.5268 2.72882C23.3803 2.58231 23.1816 2.5 22.9744 2.5H8.02129C7.21159 2.52836 6.44456 2.87007 5.88196 3.45308C5.31936 4.03609 5.00517 4.81481 5.00567 5.625C4.99811 5.75249 4.99811 5.88032 5.00567 6.00781C4.99814 6.07009 4.99814 6.13304 5.00567 6.19531V24.375C5.00517 25.1852 5.31936 25.9639 5.88196 26.5469C6.44456 27.1299 7.21159 27.4716 8.02129 27.5H22.9744C23.1816 27.5 23.3803 27.4177 23.5268 27.2712C23.6734 27.1247 23.7557 26.926 23.7557 26.7188V8.16406V8.09375V8.02344C23.7561 7.81089 23.6756 7.60615 23.5305 7.45086C23.3853 7.29558 23.1865 7.2014 22.9744 7.1875Z" />

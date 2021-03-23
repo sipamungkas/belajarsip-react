@@ -3,17 +3,18 @@ import Sidebar from "../components/Sidebar";
 import "../styles/profile.css";
 
 export default class Activity extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showMessage: false,
     };
   }
 
   render() {
+    const { user } = this.props.location.state;
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} />
+        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
         <main className={"profile"}>
           <div className="image-cover-container">
             <img

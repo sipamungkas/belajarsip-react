@@ -48,11 +48,12 @@ export default class MyClass extends Component {
   ];
 
   render() {
+    const { user } = this.props.location.state;
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} />
+        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
         <main className="activity">
-          <ActivityTitle title={"My Class"} back={true} />
+          <ActivityTitle title={"My Class"} back={true} user={user} />
           <div className="card bg-transparent border-0 p-0">
             <div className="card-header bg-transparent border-0 col-12 col-md-12 col-lg-12 p-0 my-4 my-md-4 my-lg-2 ">
               <div className="d-flex flex-row justify-content-between row">
@@ -111,9 +112,12 @@ export default class MyClass extends Component {
                     <MyClassItem
                       key={index}
                       onClickHandler={() =>
-                        this.props.history.push(
-                          `/dashboard/activity/my-class/${course?.id ?? ""}`
-                        )
+                        this.props.history.push({
+                          pathname: `/dashboard/activity/my-class/${
+                            course?.id ?? ""
+                          }`,
+                          state: { user },
+                        })
                       }
                       course={course}
                     />

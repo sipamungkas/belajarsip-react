@@ -7,8 +7,8 @@ import NewClassItem from "../components/NewClassItem";
 import ActivityTitle from "../components/ActivityTitle";
 
 export default class Activity extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showMessage: false,
     };
@@ -70,9 +70,10 @@ export default class Activity extends Component {
   ];
 
   render() {
+    const { user } = this.props;
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} />
+        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
         <main className={"activity"}>
           <ActivityTitle title={"Activity"} back={false} />
           <div className="card bg-transparent border-0 p-0">
@@ -114,7 +115,12 @@ export default class Activity extends Component {
                 </table>
               </div>
               <div className="d-flex align-items-center justify-content-center">
-                <Link to="/dashboard/activity/my-class">
+                <Link
+                  to={{
+                    pathname: "/dashboard/activity/my-class",
+                    state: { user },
+                  }}
+                >
                   <span className="view-all touchable">
                     view all{" "}
                     <img

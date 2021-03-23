@@ -199,12 +199,13 @@ export default class MyClassDetailFasilitator extends Component {
   render() {
     const { params } = this.props.match;
     const { tabIndex, studentInfo } = this.state;
+    const { user } = this.props.location.state;
     const course = this.courseList.find(
       (data) => data.id === parseInt(params.id)
     );
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} />
+        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
         <main className="activity">
           <ActivityTitle
             title={course?.title ?? "Course Not Found"}

@@ -166,9 +166,10 @@ export default class MyClassDetail extends Component {
     const course = this.courseList.find(
       (data) => data.id === parseInt(params.id)
     );
+    const { user } = this.props.location.state;
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} />
+        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
         <main className="activity">
           <ActivityTitle
             title={course?.title ?? "Course Not Found"}

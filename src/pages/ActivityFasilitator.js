@@ -6,8 +6,8 @@ import MyClassFasilitatorItem from "../components/MyClassFasilitatorItem";
 import ActivityTitle from "../components/ActivityTitle";
 
 export default class Activity extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showMessage: false,
     };
@@ -66,9 +66,11 @@ export default class Activity extends Component {
   ];
 
   render() {
+    const { user } = this.props;
+    console.table(this.props, "props activity fasilitator");
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} />
+        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
         <main className={"activity"}>
           <ActivityTitle title={"Activity"} back={false} />
           <div className="card bg-transparent border-0 p-0">
@@ -101,7 +103,17 @@ export default class Activity extends Component {
                   </thead>
                   <tbody>
                     {this.courseList.map((course, index) => (
-                      <MyClassFasilitatorItem key={index} course={course} />
+                      <MyClassFasilitatorItem
+                        key={index}
+                        course={course}
+                        onClickHandler={() =>
+                          this.props.history.push({
+                            pathname:
+                              "/dashboard/activity-fasilitator/my-class/1",
+                            state: { user },
+                          })
+                        }
+                      />
                     ))}
                   </tbody>
                 </table>

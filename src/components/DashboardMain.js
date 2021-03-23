@@ -1,15 +1,14 @@
 import React from "react";
 import "../styles/dashboardMain.css";
-
 import DashboardSchedule from "./DashboardSchedule";
 import DashboardMessage from "./DashboardMessage";
 
 export default function DashboardMain(props) {
-  const { showMessage, onShowMessage } = props;
+  const { showMessage, onShowMessage, mode } = props;
   return (
     <>
       <main className={"dashboard"}>
-        <DashboardSchedule mode={"fasilitator"} />
+        <DashboardSchedule mode={mode} />
 
         <DashboardMessage
           showMessage={showMessage}
