@@ -142,11 +142,11 @@ export default class MyClassDetail extends Component {
     const { tabIndex } = this.state;
     if (tabIndex === 2) {
       return (
-        <div class="horizontal-progress-container flex-grow-1 mb-4 mb-md-4">
+        <div className="horizontal-progress-container flex-grow-1 mb-4 mb-md-4">
           <span>{course.progress || "0"}% to complete</span>
-          <div class="horizontal-background" style={{ width: "100%" }}>
+          <div className="horizontal-background" style={{ width: "100%" }}>
             <span
-              class="horizontal-progress"
+              className="horizontal-progress"
               style={{ width: `${course.progress}%` }}
             ></span>
           </div>

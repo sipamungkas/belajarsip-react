@@ -150,7 +150,7 @@ export default class Activity extends Component {
                   <div className={"form-side col-12 col-lg-7"}>
                     <div className={"form-row"}>
                       Pricing :{" "}
-                      <div class="form-check form-check-inline mx-3">
+                      <div className="form-check form-check-inline mx-3">
                         <input
                           className="form-check-input"
                           type="radio"
@@ -159,11 +159,11 @@ export default class Activity extends Component {
                           value="0"
                           defaultChecked
                         />
-                        <label class="form-check-label" for="inlineRadio1">
+                        <label className="form-check-label" for="inlineRadio1">
                           Free
                         </label>
                       </div>
-                      <div class="form-check form-check-inline mx-3">
+                      <div className="form-check form-check-inline mx-3">
                         <input
                           className="form-check-input"
                           type="radio"
@@ -171,7 +171,7 @@ export default class Activity extends Component {
                           id="inlineRadio1"
                           value="Paid"
                         />
-                        <label class="form-check-label" for="inlineRadio1">
+                        <label className="form-check-label" for="inlineRadio1">
                           Paid
                         </label>
                       </div>

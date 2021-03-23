@@ -108,6 +108,10 @@ main.profile .profile-setting .setting-list .setting-container .setting-icon {
     padding: 2% 3% 5% 3%;
     height: auto;
   }
+
+  main.profile .image-cover-container .avatar-container .avatar-name {
+    margin-top: 1rem;
+  }
 }
 
 @media (min-width: 992px) {
