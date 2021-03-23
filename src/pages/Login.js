@@ -18,9 +18,9 @@ export default class Login extends Component {
     this.setState({ showPassword: !this.state.showPassword });
   };
 
-  auth = async () => {
+  auth = () => {
     const { username, password } = this.state;
-    const user = await users.find(
+    const user = users.find(
       (user) => user.username === username && user.password === password
     );
     if (user) {

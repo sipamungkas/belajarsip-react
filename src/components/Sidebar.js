@@ -89,7 +89,9 @@ export default function Sidebar(props) {
               alt={"avatar"}
             />
             <div className="d-flex flex-column">
-              <span className="avatar-name text-white">{"Emir Kharisma"}</span>
+              <span className="avatar-name text-white">
+                {user.name || "Emir Kharisma"}
+              </span>
               <span className="avatar-status mt-1 text-white">Online</span>
             </div>
           </Link>

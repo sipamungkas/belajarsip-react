@@ -2,7 +2,7 @@ import React from "react";
 import DateItem from "./DateItem";
 import { Link } from "react-router-dom";
 
-export default function DashboardScheduleDate() {
+export default function DashboardScheduleDate(props) {
   return (
     <section className={"date"}>
       <div className={"date-header"}>
@@ -23,7 +23,7 @@ export default function DashboardScheduleDate() {
         <DateItem dayName={"Su"} day={"18"} />
       </div>
       <Link
-        to="dashboard/for-you"
+        to={{ pathaname: "/dashboard/for-you", state: { user: props.user } }}
         className="d-flex align-items-center justify-content-center touchable py-3 all-schedule"
       >
         <span className={"first"}>All schedule&nbsp;</span>

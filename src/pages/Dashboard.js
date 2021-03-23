@@ -24,6 +24,7 @@ export default class Dashboard extends Component {
           mode={user.role || "member"}
           showMessage={showMessage}
           onShowMessage={() => this.setShowMessage}
+          user={user}
         />
       </>
     );

@@ -12,7 +12,7 @@ export default function DashboardSchedule(props) {
       <DashboardNews />
       <section className={"schedule mt-3"}>
         <div className="card">
-          <DashboardScheduleDate />
+          <DashboardScheduleDate user={props.user} />
           <DashboardScheduleList mode={mode} />
         </div>
       </section>

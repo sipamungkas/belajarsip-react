@@ -8,7 +8,7 @@ export default function DashboardMain(props) {
   return (
     <>
       <main className={"dashboard"}>
-        <DashboardSchedule mode={mode} />
+        <DashboardSchedule mode={mode} user={props.user} />
 
         <DashboardMessage
           showMessage={showMessage}
