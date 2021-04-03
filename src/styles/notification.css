@@ -9,6 +9,7 @@
   z-index: 3;
   padding: 0 1rem;
   color: white;
+  border-radius: 10px;
   overflow-y: scroll;
 }
 
