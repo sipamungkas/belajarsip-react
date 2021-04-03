@@ -78,7 +78,8 @@ main.dashboard section.schedule .card .all-schedule .last {
 
 @media (min-width: 992px) {
   main.dashboard .schedule-container {
-    width: 55%;
+    width: 100%;
+    /* width: 55%; */
   }
 }
 
