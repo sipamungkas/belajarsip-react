@@ -16,6 +16,7 @@ export default class Dashboard extends Component {
 
   render() {
     const { user } = this.props.location.state;
+    console.log("role", user.data);
     const { showMessage } = this.state;
     return (
       <>

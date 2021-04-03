@@ -1,0 +1,32 @@
+.notification-container {
+  background-color: var(--blue);
+  height: 100%;
+  width: 100%;
+}
+
+.notification-container img.close-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.notification-container .notification-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  margin: 1rem 0;
+}
+
+.notification-container .notification-item .avatar {
+  height: 2rem;
+  width: 2rem;
+}
+
+.notification-container h3 {
+  font-family: Roboto;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+}

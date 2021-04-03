@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "../styles/login.css";
 import googleIcon from "../assets/images/icons/google-icon.svg";
 import InputForm from "../components/InputForm";
-import { users } from "../data/users";
+// import { users } from "../data/users";
+import { BASE_URL } from "../constant";
 
 export default class Login extends Component {
   constructor() {
@@ -11,7 +13,7 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      login: false,
+      error: false,
     };
   }
   eyeIconHandler = (e) => {
@@ -20,17 +22,30 @@ export default class Login extends Component {
 
   auth = () => {
     const { username, password } = this.state;
-    const user = users.find(
-      (user) => user.username === username && user.password === password
-    );
-    if (user) {
-      this.props.history.push({ pathname: "/dashboard", state: { user } });
-    }
-    this.setState({ login: true });
+    // const user = users.find(
+    //   (user) => user.username === username && user.password === password
+    // );
+    // if (user) {
+    //   this.props.history.push({ pathname: "/dashboard", state: { user } });
+    // }
+    axios
+      .post(`${BASE_URL}users/auth`, { username, password })
+      .then((res) => {
+        console.log("tes", res.data);
+        this.setState({ error: false });
+        this.props.history.push({
+          pathname: "/dashboard",
+          state: { user: res.data.data },
+        });
+      })
+      .catch((err) => {
+        console.log(err, "gagal login");
+        this.setState({ error: true });
+      });
   };
 
   loginFailed = () => {
-    return <h3 style={{ color: "red" }}>Login Failed</h3>;
+    return <h4 style={{ color: "red" }}>Login Failed</h4>;
   };
   render() {
     console.log(this.state);
@@ -38,7 +53,7 @@ export default class Login extends Component {
       <>
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-4 login-container">
           <h1>Login</h1>
-          {this.state.login ? this.loginFailed() : ""}
+          {this.state.error ? this.loginFailed() : ""}
           <form className={"w-100"}>
             <InputForm
               type={"text"}

@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import MyClassItem from "../components/MyClassItem";
 import Sidebar from "../components/Sidebar";
 import ActivityTitle from "../components/ActivityTitle";
+import axios from "axios";
+import { BASE_URL } from "../constant";
 
 export default class MyClass extends Component {
   constructor() {
     super();
     this.state = {
       showMessage: false,
+      myClass: [],
     };
   }
 
@@ -47,8 +50,22 @@ export default class MyClass extends Component {
     },
   ];
 
+  componentDidMount() {
+    console.log("tes");
+    axios
+      .get(`${BASE_URL}my-class/1?limit=3`)
+      .then((res) => {
+        console.log(res.data.data);
+        this.setState({ myClass: res.data.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
     const { user } = this.props.location.state;
+    const { myClass } = this.state;
     return (
       <>
         <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
@@ -108,7 +125,7 @@ export default class MyClass extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.courseList.map((course, index) => (
+                  {myClass.map((course, index) => (
                     <MyClassItem
                       key={index}
                       onClickHandler={() =>
