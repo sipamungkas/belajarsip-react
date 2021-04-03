@@ -1,0 +1,70 @@
+.notification-container {
+  background-color: var(--blue);
+  height: calc(100% - 2rem - 48px);
+  position: fixed;
+  top: calc(48px + 1rem);
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  z-index: 3;
+  padding: 0 1rem;
+  color: white;
+  overflow-y: scroll;
+}
+
+.notification-container img.close-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.notification-container h3 {
+  font-family: Roboto;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.notification-container .notification-body {
+  margin-top: 2rem;
+}
+
+.notification-container .notification-item {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 3rem;
+  margin: 1rem 0;
+}
+
+.notification-container .notification-item .avatar {
+  /* height: 5rem; */
+  width: 15%;
+  /* width: 5rem; */
+}
+
+.notification-container .notification-item .avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.notification-container .notification-item .notification-content {
+  margin: 0 1rem;
+  width: 65%;
+}
+
+.notification-container .notification-item .notification-time {
+  font-family: Roboto;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  width: 10%;
+}
