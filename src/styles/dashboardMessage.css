@@ -266,6 +266,7 @@ aside.message-container .message .message-body {
 
   aside.message-container .message .sender-name {
     font-size: 1.7rem;
+    width: 90%;
   }
   aside.message-container .message .message-content,
   aside.message-container .message .message-timestamp {
