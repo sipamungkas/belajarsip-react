@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/resetPassword.css";
 import ResetLeftSide from "./ResetLeftSide";
 
-class ResetPassword extends Component {
+class ResetOtpVerification extends Component {
   constructor() {
     super();
     this.state = {
@@ -77,4 +77,4 @@ class ResetPassword extends Component {
   }
 }
 
-export default ResetPassword;
+export default ResetOtpVerification;

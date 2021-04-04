@@ -7,7 +7,7 @@ import ResetLeftSide from "./ResetLeftSide";
 import RightResetOverlay from "./ResetRightOverlay";
 import InputForm from "./InputForm";
 
-class ResetPassword extends Component {
+class ResetNewPassword extends Component {
   constructor() {
     super();
     this.state = {
@@ -106,4 +106,4 @@ class ResetPassword extends Component {
   }
 }
 
-export default ResetPassword;
+export default ResetNewPassword;
