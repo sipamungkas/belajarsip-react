@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
-import googleIcon from "../assets/images/icons/google-icon.svg";
 import InputForm from "../components/InputForm";
-import { users } from "../data/users";
+// import { users } from "../data/users";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { BASE_URL } from "../constant";
+import axios from "axios";
 
 export default class Login extends Component {
   constructor() {
@@ -21,22 +22,36 @@ export default class Login extends Component {
 
   auth = () => {
     const { username, password } = this.state;
-    const user = users.find(
-      (user) => user.username === username && user.password === password
-    );
-    if (user) {
-      this.props.history.push({ pathname: "/dashboard", state: { user } });
-    }
-    toast("Invalid Credentials", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      type: "error",
-    });
+    // const user = users.find(
+    //   (user) => user.username === username && user.password === password
+    // );
+    // if (user) {
+    //   this.props.history.push({ pathname: "/dashboard", state: { user } });
+    // }
+    axios
+      .post(`${BASE_URL}auth/login`, { username, password })
+      .then((res) => {
+        console.log("tes", res.data);
+        this.setState({ error: false });
+        this.props.history.push({
+          pathname: "/dashboard",
+          state: { user: res.data.data },
+        });
+      })
+      .catch((err) => {
+        console.log(err.response.data.message, "gagal login");
+        toast(err.response?.data?.message || "Internal server Error", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          type: "error",
+        });
+        this.setState({ error: true });
+      });
   };
 
   render() {
@@ -82,7 +97,10 @@ export default class Login extends Component {
               Login
             </div>
             <div className="btn-google" tabIndex={2}>
-              <img src={googleIcon} alt="google icon" />
+              <img
+                src="/assets/images/icons/google-icon.svg"
+                alt="google icon"
+              />
               Login with google
             </div>
           </div>
