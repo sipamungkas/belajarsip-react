@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../styles/register.css";
-import googleIcon from "../assets/images/icons/google-icon.svg";
 
 import InputForm from "../components/InputForm";
 
@@ -97,7 +96,10 @@ export default class Login extends Component {
           <div className="btn-container">
             <div className="btn-login">Register</div>
             <div className="btn-google">
-              <img src={googleIcon} alt="google icon" />
+              <img
+                src={"assets/images/icons/google-icon.svg"}
+                alt="google icon"
+              />
               Register with google
             </div>
           </div>

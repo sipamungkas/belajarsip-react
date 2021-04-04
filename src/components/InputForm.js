@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import eyeIcon from "../assets/images/icons/eye-icon.svg";
-import eyeSlashIcon from "../assets/images/icons/eye-slash-icon.svg";
 import PropTypes from "prop-types";
 
 function InputFormPassword(props) {
@@ -29,7 +27,9 @@ function InputFormPassword(props) {
         <label htmlFor={forId}>{label}</label>
         <img
           className="eye-icon"
-          src={show ? eyeSlashIcon : eyeIcon}
+          src={`assets/images/icons/${
+            show ? "eye-slash-icon.svg" : "eye-icon.svg"
+          }`}
           alt="eye icon"
           onClick={() => setShow(!show)}
         />
