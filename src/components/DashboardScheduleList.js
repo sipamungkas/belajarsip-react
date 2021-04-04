@@ -3,7 +3,7 @@ import "../styles/scheduleList.css";
 import DashboardScheduleItem from "./DashboardScheduleItem";
 import FasilitatorScheduleItem from "./FasilitatorScheduleItem";
 export default function DashboardScheduleList(props) {
-  const { mode } = props;
+  const { mode, tab } = props;
   const courseList = [
     {
       title: "Introduction to Banking Finance",
@@ -13,6 +13,19 @@ export default function DashboardScheduleList(props) {
     {
       title: "Trigonometry",
       duration: "50 minutes",
+      categoryIcon: "/assets/images/icons/finance-category.svg",
+    },
+  ];
+
+  const courseListforYou = [
+    {
+      title: "Introduction to Banking Finance",
+      duration: "100 minutes",
+      categoryIcon: "/assets/images/icons/finance-category.svg",
+    },
+    {
+      title: "Introduction to Banking Finance",
+      duration: "100 minutes",
       categoryIcon: "/assets/images/icons/finance-category.svg",
     },
   ];
@@ -46,6 +59,23 @@ export default function DashboardScheduleList(props) {
         {courseFasilitator.map((course, index) => (
           <FasilitatorScheduleItem key={index} course={course} />
         ))}
+      </section>
+    );
+  } else if (tab === 2) {
+    return (
+      <section className={"schedule-list"}>
+        <DashboardScheduleItem
+          courseTime={"18:00"}
+          courseList={courseListforYou}
+        />
+        <DashboardScheduleItem
+          courseTime={"11:00"}
+          courseList={courseListforYou}
+        />
+        <DashboardScheduleItem
+          courseTime={"18:00"}
+          courseList={courseListforYou}
+        />
       </section>
     );
   } else {

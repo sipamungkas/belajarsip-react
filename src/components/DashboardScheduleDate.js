@@ -3,6 +3,7 @@ import DateItem from "./DateItem";
 import { Link } from "react-router-dom";
 
 export default function DashboardScheduleDate(props) {
+  const { setTabIndex, tab } = props;
   return (
     <section className={"date"}>
       <div className={"date-header"}>
@@ -26,8 +27,18 @@ export default function DashboardScheduleDate(props) {
         to={{ pathaname: "/dashboard/for-you", state: { user: props.user } }}
         className="d-flex align-items-center justify-content-center touchable py-3 all-schedule"
       >
-        <span className={"first"}>All schedule&nbsp;</span>
-        <span className={"last"}>ForYou</span>
+        <span
+          className={`tab ${tab === 1 ? "active" : ""}`}
+          onClick={() => setTabIndex(1)}
+        >
+          All schedule&nbsp;
+        </span>
+        <span
+          className={`tab ${tab === 2 ? "active" : ""}`}
+          onClick={() => setTabIndex(2)}
+        >
+          ForYou
+        </span>
       </Link>
     </section>
   );
