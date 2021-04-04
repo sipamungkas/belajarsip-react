@@ -59,6 +59,16 @@ export default function DashboardScheduleList(props) {
         {courseFasilitator.map((course, index) => (
           <FasilitatorScheduleItem key={index} course={course} />
         ))}
+        <div className="add-new-task">
+          <button className={"btn btn-add-task create-class"}>
+            <img
+              src={"/assets/images/icons/circle-plus-icon-white.svg"}
+              alt="add"
+              className="add-task-icon"
+            />
+            Create
+          </button>
+        </div>
       </section>
     );
   } else if (tab === 2) {
