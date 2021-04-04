@@ -2,17 +2,24 @@ import React, { Component } from "react";
 import MyClassItem from "../components/MyClassItem";
 import Sidebar from "../components/Sidebar";
 import ActivityTitle from "../components/ActivityTitle";
+import Notification from "../components/Notification";
+import Backdrop from "../components/Backdrop";
 
 export default class MyClass extends Component {
   constructor() {
     super();
     this.state = {
       showMessage: false,
+      showNotification: false,
     };
   }
 
   setShowMessage = () => {
     this.setState({ showMessage: !this.state.showMessage });
+  };
+
+  setShowNotification = () => {
+    this.setState({ showNotification: !this.state.showNotification });
   };
 
   courseList = [
@@ -49,9 +56,14 @@ export default class MyClass extends Component {
 
   render() {
     const { user } = this.props.location.state;
+    const { showNotification } = this.state;
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
+        <Sidebar
+          onShowMessage={() => this.setShowMessage}
+          user={user}
+          onNotificationClick={() => this.setShowNotification}
+        />
         <main className="activity">
           <ActivityTitle title={"My Class"} back={true} user={user} />
           <div className="card bg-transparent border-0 p-0">
@@ -150,6 +162,10 @@ export default class MyClass extends Component {
             </div>
           </div>
         </main>
+        {showNotification && (
+          <Notification onNotificationClick={() => this.setShowNotification} />
+        )}
+        {showNotification && <Backdrop />}
       </>
     );
   }

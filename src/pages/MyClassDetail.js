@@ -4,12 +4,15 @@ import ActivityTitle from "../components/ActivityTitle";
 import Sidebar from "../components/Sidebar";
 import MyClassDescription from "../components/MyClassDescription";
 import MyClassProgress from "../components/MyClassProgress";
+import Notification from "../components/Notification";
+import Backdrop from "../components/Backdrop";
 
 export default class MyClassDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tabIndex: 2,
+      showNotification: false,
     };
   }
   courseList = [
@@ -160,6 +163,10 @@ export default class MyClassDetail extends Component {
     this.setState({ tabIndex });
   };
 
+  setShowNotification = () => {
+    this.setState({ showNotification: !this.state.showNotification });
+  };
+
   render() {
     const { params } = this.props.match;
     const { tabIndex } = this.state;
@@ -167,9 +174,15 @@ export default class MyClassDetail extends Component {
       (data) => data.id === parseInt(params.id)
     );
     const { user } = this.props.location.state;
+    const { showNotification } = this.state;
+
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
+        <Sidebar
+          onShowMessage={() => this.setShowMessage}
+          user={user}
+          onNotificationClick={() => this.setShowNotification}
+        />
         <main className="activity">
           <ActivityTitle
             title={course?.title ?? "Course Not Found"}
@@ -243,6 +256,10 @@ export default class MyClassDetail extends Component {
             {this.renderTabContent(course)}
           </div>
         </main>
+        {showNotification && (
+          <Notification onNotificationClick={() => this.setShowNotification} />
+        )}
+        {showNotification && <Backdrop />}
       </>
     );
   }

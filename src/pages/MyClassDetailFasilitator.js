@@ -4,6 +4,8 @@ import Sidebar from "../components/Sidebar";
 import MyClassDescription from "../components/MyClassDescription";
 import MyClassProgress from "../components/MyClassProgress";
 import MyClassMember from "../components/MyClassMember";
+import Notification from "../components/Notification";
+import Backdrop from "../components/Backdrop";
 
 export default class MyClassDetailFasilitator extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ export default class MyClassDetailFasilitator extends Component {
     this.state = {
       tabIndex: 4,
       studentInfo: false,
+      showNotification: false,
     };
   }
   courseList = [
@@ -196,14 +199,18 @@ export default class MyClassDetailFasilitator extends Component {
 
   render() {
     const { params } = this.props.match;
-    const { tabIndex, studentInfo } = this.state;
+    const { tabIndex, studentInfo, showNotification } = this.state;
     const { user } = this.props.location.state;
     const course = this.courseList.find(
       (data) => data.id === parseInt(params.id)
     );
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
+        <Sidebar
+          onShowMessage={() => this.setShowMessage}
+          user={user}
+          onNotificationClick={() => this.setShowNotification}
+        />
         <main className="activity">
           <ActivityTitle
             title={course?.title ?? "Course Not Found"}
@@ -353,6 +360,10 @@ export default class MyClassDetailFasilitator extends Component {
             </div>
           </div>
         </main>
+        {showNotification && (
+          <Notification onNotificationClick={() => this.setShowNotification} />
+        )}
+        {showNotification && <Backdrop />}
       </>
     );
   }
