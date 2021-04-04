@@ -66,7 +66,7 @@ export default function DashboardScheduleList(props) {
               alt="add"
               className="add-task-icon"
             />
-            Create
+            New Task
           </button>
         </div>
       </section>
