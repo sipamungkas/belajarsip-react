@@ -38,7 +38,10 @@ export default class Dashboard extends Component {
           user={user}
         />
         {showNotification && (
-          <Notification onNotificationClick={() => this.setShowNotification} />
+          <Notification
+            onNotificationClick={() => this.setShowNotification}
+            addClass={"dashboard"}
+          />
         )}
         {showNotification && <Backdrop />}
       </>

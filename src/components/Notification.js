@@ -2,9 +2,11 @@ import React from "react";
 import "../styles/notification.css";
 
 export default function Notification(props) {
-  const { onNotificationClick } = props;
+  const { onNotificationClick, addClass } = props;
+  console.log(props);
+
   return (
-    <div className={"notification-container"}>
+    <div className={`notification-container ${addClass || ""}`}>
       <h3>Notification</h3>
       <img
         onClick={onNotificationClick()}
@@ -12,7 +14,7 @@ export default function Notification(props) {
         className={"close-icon"}
         alt="close"
       />
-      <div className={"notification-body"}>
+      <div className={`notification-body`}>
         <h4>Today</h4>
         <div className="notification-item">
           <div className="avatar">
