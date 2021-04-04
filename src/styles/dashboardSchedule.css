@@ -82,6 +82,16 @@ main.dashboard section.schedule .card .all-schedule .last {
   }
 }
 
+@media (min-width: 1024px) {
+  main.dashboard .schedule-container {
+    width: 100%;
+  }
+
+  main.dashboard .schedule-container.student {
+    width: 60%;
+  }
+}
+
 @media (min-width: 1440px) {
   main.dashboard section.schedule .card .date-header .calendar-icon {
     padding-right: 1rem;

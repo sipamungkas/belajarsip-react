@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../styles/activityFasilitator.css";
 import MyClassFasilitatorItem from "../components/MyClassFasilitatorItem";
@@ -130,17 +130,17 @@ export default class Activity extends Component {
                 </table>
               </div>
               <div className="d-flex align-items-center justify-content-center">
-                <Link to="/dashboard/activity/my-class">
-                  <span className="view-all touchable">
-                    view all{" "}
-                    <img
-                      src="/assets/images/icons/forward-icon.svg"
-                      width="12"
-                      height="12"
-                      alt="view all"
-                    />
-                  </span>
-                </Link>
+                {/* <Link to="/dashboard/activity/my-class"> */}
+                <span className="view-all touchable">
+                  view all{" "}
+                  <img
+                    src="/assets/images/icons/forward-icon.svg"
+                    width="12"
+                    height="12"
+                    alt="view all"
+                  />
+                </span>
+                {/* </Link> */}
               </div>
             </div>
           </div>
