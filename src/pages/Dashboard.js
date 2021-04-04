@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     super(props);
     this.state = {
       showMessage: false,
-      showBackdrop: true,
+      showNotification: false,
     };
   }
 
@@ -17,20 +17,30 @@ export default class Dashboard extends Component {
     this.setState({ showMessage: !this.state.showMessage });
   };
 
+  setShowNotification = () => {
+    this.setState({ showNotification: !this.state.showNotification });
+  };
+
   render() {
     const { user } = this.props.location.state;
-    const { showMessage, showBackdrop } = this.state;
+    const { showMessage, showNotification } = this.state;
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
+        <Sidebar
+          onShowMessage={() => this.setShowMessage}
+          user={user}
+          onNotificationClick={() => this.setShowNotification}
+        />
         <DashboardMain
           mode={user.role || "member"}
           showMessage={showMessage}
           onShowMessage={() => this.setShowMessage}
           user={user}
         />
-        <Notification />
-        {showBackdrop && <Backdrop />}
+        {showNotification && (
+          <Notification onNotificationClick={() => this.setShowNotification} />
+        )}
+        {showNotification && <Backdrop />}
       </>
     );
   }
