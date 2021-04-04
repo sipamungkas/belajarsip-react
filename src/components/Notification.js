@@ -5,12 +5,13 @@ export default function Notification() {
   return (
     <div className={"notification-container"}>
       <h3>Notification</h3>
+      <img
+        src="/assets/images/icons/close-icon.svg"
+        className={"close-icon"}
+        alt=""
+      />
       <div className={"notification-body"}>
-        <img
-          src="/assets/images/icons/close-icon.svg"
-          className={"close-icon"}
-          alt=""
-        />
+        <h4>Today</h4>
         <div className="notification-item">
           <div className="avatar">
             <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
@@ -38,6 +39,7 @@ export default function Notification() {
           </div>
           <div className="notification-time">2 min</div>
         </div>
+        <h4>Yesterday</h4>
         <div className="notification-item">
           <div className="avatar">
             <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />

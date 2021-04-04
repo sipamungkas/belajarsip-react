@@ -10,7 +10,7 @@
   padding: 0 1rem;
   color: white;
   border-radius: 10px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .notification-container img.close-icon {
@@ -29,8 +29,20 @@
   margin-top: 2rem;
 }
 
+.notification-container h4 {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
+}
+
 .notification-container .notification-body {
+  position: relative;
+  height: 78%;
   margin-top: 2rem;
+  /* background-color: goldenrod; */
+  overflow-y: scroll;
 }
 
 .notification-container .notification-item {
@@ -41,13 +53,13 @@
   align-items: center;
   justify-content: space-evenly;
   height: 3rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .notification-container .notification-item .avatar {
   /* height: 5rem; */
   width: 15%;
-  /* width: 5rem; */
+  max-width: 3rem;
 }
 
 .notification-container .notification-item .avatar img {
@@ -60,6 +72,10 @@
 .notification-container .notification-item .notification-content {
   margin: 0 1rem;
   width: 65%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
 }
 
 .notification-container .notification-item .notification-time {
@@ -68,4 +84,41 @@
   font-style: normal;
   font-weight: 500;
   width: 10%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .notification-container {
+    height: calc(100vh - 2rem);
+    top: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+    left: calc(28%);
+    z-index: 3;
+    padding: 0 1rem;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .notification-container h3 {
+    font-size: 1.8rem;
+    margin-top: 4rem;
+  }
+
+  .notification-container .notification-body h4 {
+    font-size: 1.5rem;
+  }
+
+  .notification-container .notification-body {
+    height: 70%;
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    overflow: auto;
+  }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1440px) {
 }
