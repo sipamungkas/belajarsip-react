@@ -28,7 +28,7 @@ main.dashboard .fab-message {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 72%;
+    width: 75%;
     overflow-y: scroll;
     z-index: 2;
   }

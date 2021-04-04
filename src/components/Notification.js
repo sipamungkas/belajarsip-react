@@ -47,7 +47,7 @@ export default function Notification() {
           <div className="notification-content">
             There are 10 news update for today. Don’t miss it!
           </div>
-          <div className="notification-time">2 min</div>
+          <div className="notification-time">Yesterday</div>
         </div>
         <div className="notification-item">
           <div className="avatar">
@@ -56,7 +56,7 @@ export default function Notification() {
           <div className="notification-content">
             There are 10 news update for today. Don’t miss it!
           </div>
-          <div className="notification-time">2 min</div>
+          <div className="notification-time">Yesterday</div>
         </div>
         <div className="notification-item">
           <div className="avatar">
@@ -65,7 +65,7 @@ export default function Notification() {
           <div className="notification-content">
             There are 10 news update for today. Don’t miss it!
           </div>
-          <div className="notification-time">2 min</div>
+          <div className="notification-time">Yesterday</div>
         </div>
       </div>
     </div>

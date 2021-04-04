@@ -142,14 +142,14 @@ aside.left-sidebar .menu-container .menu-link.active {
     position: absolute;
     padding: 2% 1%;
     height: 100vh;
-    width: 28%;
+    width: 25%;
     border-radius: 10px;
     z-index: 1;
   }
 
   .overlay-bg-black.show-overlay {
     height: 100vh;
-    width: 28%;
+    width: 25%;
   }
 
   aside.left-sidebar {
