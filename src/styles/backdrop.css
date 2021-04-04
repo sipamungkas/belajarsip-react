@@ -8,3 +8,19 @@ div.backdrop {
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 2;
 }
+
+@media (min-width: 992px) {
+  div.backdrop {
+    right: calc(30% + 1rem);
+    margin: 2% 1%;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1440px) {
+  div.backdrop {
+    right: calc(27.5% + 1rem);
+    margin: 2% 1%;
+    border-radius: 10px;
+  }
+}

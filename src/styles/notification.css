@@ -121,6 +121,70 @@
   }
 }
 @media (min-width: 992px) {
+  .notification-container {
+    margin: 2% 0;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 20%;
+    right: calc(30% + 1rem);
+    z-index: 3;
+    padding: 0 1rem;
+    color: white;
+    border-radius: 0px 10px 10px 0;
+  }
+
+  .notification-container h3 {
+    font-size: 1.8rem;
+    margin-top: 4rem;
+  }
+
+  .notification-container .notification-body h4 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+
+  .notification-container .notification-body {
+    height: 80%;
+    margin-top: 1rem;
+    overflow: auto;
+  }
+
+  .notification-container .notification-body .notification-content {
+    font-size: 1.1rem;
+  }
+
+  .notification-container .notification-body .notification-time {
+    font-size: 0.9rem;
+  }
 }
 @media (min-width: 1440px) {
+  .notification-container {
+    right: calc(28.5% + 1rem);
+  }
+
+  .notification-container h3 {
+    font-size: 2.2rem;
+    margin-top: 4rem;
+  }
+
+  .notification-container .notification-body h4 {
+    font-size: 1.7rem;
+    margin: 2rem 0;
+  }
+
+  .notification-container .notification-body {
+    padding: 0 2rem;
+    height: 85%;
+    margin-top: 1rem;
+    overflow: auto;
+  }
+
+  .notification-container .notification-body .notification-content {
+    font-size: 1.5rem;
+  }
+
+  .notification-container .notification-body .notification-time {
+    font-size: 1.3rem;
+  }
 }

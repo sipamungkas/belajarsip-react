@@ -67,6 +67,70 @@ export default function Notification() {
           </div>
           <div className="notification-time">Yesterday</div>
         </div>
+        <h4>This Week</h4>
+        <div className="notification-item">
+          <div className="avatar">
+            <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
+          </div>
+          <div className="notification-content">
+            There are 10 news update for today. Don’t miss it!
+          </div>
+          <div className="notification-time">8/10</div>
+        </div>
+        <div className="notification-item">
+          <div className="avatar">
+            <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
+          </div>
+          <div className="notification-content">
+            There are 10 news update for today. Don’t miss it!
+          </div>
+          <div className="notification-time">8/10</div>
+        </div>
+        <div className="notification-item">
+          <div className="avatar">
+            <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
+          </div>
+          <div className="notification-content">
+            There are 10 news update for today. Don’t miss it!
+          </div>
+          <div className="notification-time">8/10</div>
+        </div>
+        <div className="notification-item">
+          <div className="avatar">
+            <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
+          </div>
+          <div className="notification-content">
+            There are 10 news update for today. Don’t miss it!
+          </div>
+          <div className="notification-time">8/10</div>
+        </div>
+        <div className="notification-item">
+          <div className="avatar">
+            <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
+          </div>
+          <div className="notification-content">
+            There are 10 news update for today. Don’t miss it!
+          </div>
+          <div className="notification-time">8/10</div>
+        </div>
+        <div className="notification-item">
+          <div className="avatar">
+            <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
+          </div>
+          <div className="notification-content">
+            There are 10 news update for today. Don’t miss it!
+          </div>
+          <div className="notification-time">8/10</div>
+        </div>
+        <div className="notification-item">
+          <div className="avatar">
+            <img src="/assets/images/avatars/avatar-1.png" alt="avatar" />
+          </div>
+          <div className="notification-content">
+            There are 10 news update for today. Don’t miss it!
+          </div>
+          <div className="notification-time">8/10</div>
+        </div>
       </div>
     </div>
   );

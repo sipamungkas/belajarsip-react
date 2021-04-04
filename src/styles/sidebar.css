@@ -240,6 +240,14 @@ aside.left-sidebar .menu-container .menu-link.active {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  aside.left-sidebar .avatar-container .avatar-name {
+    font-size: 1.4rem;
+  }
+
+  aside.left-sidebar .menu-container .menu-link {
+    font-size: 1.1rem;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
