@@ -24,6 +24,7 @@ function InputFormPassword(props) {
           placeholder={placeholder}
           onChange={onChangeHandler}
           autoComplete={"false"}
+          tabIndex={1}
         />
         <label htmlFor={forId}>{label}</label>
         <img
@@ -44,6 +45,7 @@ function InputFormPassword(props) {
         placeholder={placeholder}
         onChange={onChangeHandler}
         autoComplete={"true"}
+        tabIndex={1}
       />
       <label htmlFor={forId}>{label}</label>
     </div>
