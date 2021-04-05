@@ -17,6 +17,8 @@ export default class Activity extends Component {
       showMessage: false,
       courseList: [],
       newCourseList: [],
+      searchValue: "",
+      sort: "",
     };
   }
 
@@ -27,56 +29,29 @@ export default class Activity extends Component {
     this.setState({ showNotification: !this.state.showNotification });
   };
 
-  courseList = [
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      progress: "80",
-      status: "ongoing",
-      score: 100,
-    },
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      progress: "80",
-      status: "ongoing",
-      score: 88,
-    },
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      progress: "80",
-      status: "ongoing",
-      score: 88,
-    },
-  ];
-
-  newCourseList = [
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      level: "Beginner",
-      price: 0,
-    },
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      level: "Beginner",
-      price: 0,
-    },
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      level: "Beginner",
-      price: 0,
-    },
-  ];
+  searchHandler = () => {
+    axios
+      .get(
+        `${BASE_URL}courses?search=${this.state.searchValue}&sort=${this.state.sort}`,
+        {
+          headers: { Authorization: `Bearer ${this.props.user.token}` },
+        }
+      )
+      .then((res) => {
+        const availableCourses = res.data.data.filter(
+          (course) =>
+            !this.state.courseList.filter(
+              (registered) => registered.id === course.id
+            ).length
+        );
+        this.setState({
+          newCourseList: availableCourses,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   componentDidMount() {
     axios(`${BASE_URL}courses/my-class?limit=3`, {
@@ -92,7 +67,6 @@ export default class Activity extends Component {
       headers: { Authorization: `Bearer ${this.props.user.token}` },
     })
       .then((res) => {
-        console.log("state", this.state.courseList);
         const availableCourses = res.data.data.filter(
           (course) =>
             !this.state.courseList.filter(
@@ -190,24 +164,52 @@ export default class Activity extends Component {
                   placeholder="Quick Search"
                   aria-label="Quick Search"
                   aria-describedby="button-addon2"
+                  onChange={(e) =>
+                    this.setState({ searchValue: e.target.value })
+                  }
                 />
                 <button
                   className="btn bg-primary-blue text-white text-xs"
                   type="button"
                   id="button-addon2"
+                  onClick={() => this.searchHandler()}
                 >
                   Search
                 </button>
               </div>
               <div className="mt-0 col-12 search-filter mb-3">
-                <select name="category" id="category">
+                <select
+                  name="category"
+                  id="category"
+                  onChange={(e) => {
+                    this.setState({ sort: e.target.value });
+                  }}
+                >
                   <option value="">Categories</option>
+                  <option value="category-az">Category A-Z</option>
+                  <option value="category-za">Category Z-A</option>
                 </select>
-                <select name="level" id="level">
+                <select
+                  name="level"
+                  id="level"
+                  onChange={(e) => {
+                    this.setState({ sort: e.target.value });
+                  }}
+                >
                   <option value="">Level</option>
+                  <option value="level-az">Lowest Level</option>
+                  <option value="level-za">Highest Level</option>
                 </select>
-                <select name="pricing" id="pricing">
+                <select
+                  name="pricing"
+                  id="pricing"
+                  onChange={(e) => {
+                    this.setState({ sort: e.target.value });
+                  }}
+                >
                   <option value="">Pricing</option>
+                  <option value="price-az">Lowest Price</option>
+                  <option value="price-za">Highest Price</option>
                 </select>
               </div>
               <div className={"table-responsive"}>
