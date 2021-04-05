@@ -418,6 +418,7 @@ main.activity table.new-class-table tbody tr td .score {
     bottom: 0;
     width: 75%;
     overflow-y: scroll;
+    overflow-x: hidden;
     z-index: 2;
   }
 

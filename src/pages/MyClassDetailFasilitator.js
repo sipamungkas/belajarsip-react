@@ -6,6 +6,8 @@ import MyClassProgress from "../components/MyClassProgress";
 import MyClassMember from "../components/MyClassMember";
 import Notification from "../components/Notification";
 import Backdrop from "../components/Backdrop";
+import { BASE_URL } from "../constant";
+import axios from "axios";
 
 export default class MyClassDetailFasilitator extends Component {
   constructor(props) {
@@ -14,6 +16,8 @@ export default class MyClassDetailFasilitator extends Component {
       tabIndex: 4,
       studentInfo: false,
       showNotification: false,
+      course: {},
+      students: [],
     };
   }
   courseList = [
@@ -162,7 +166,7 @@ export default class MyClassDetailFasilitator extends Component {
       //   return "4";
       return (
         <MyClassMember
-          course={course}
+          students={this.state.students}
           onClickHandler={() => this.showStudentInfo()}
         />
       );
@@ -197,12 +201,42 @@ export default class MyClassDetailFasilitator extends Component {
     this.setState({ studentInfo: !this.state.studentInfo });
   };
 
-  render() {
+  componentDidMount() {
     const { params } = this.props.match;
-    const { tabIndex, studentInfo, showNotification } = this.state;
     const { user } = this.props.location.state;
-    const course = this.courseList.find(
-      (data) => data.id === parseInt(params.id)
+    axios
+      .get(`${BASE_URL}courses/${params.id}`, {
+        headers: { Authorization: `Bearer ${user.token}` },
+      })
+      .then((res) => {
+        this.setState({ course: res.data.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`${BASE_URL}courses/${params.id}/students`, {
+        headers: { Authorization: `Bearer ${user.token}` },
+      })
+      .then((res) => {
+        this.setState({ students: res.data.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  render() {
+    // const { params } = this.props.match;
+    const { course, tabIndex, studentInfo, showNotification } = this.state;
+    const { user } = this.props.location.state;
+    // const course = this.courseList.find(
+    //   (data) => data.id === parseInt(params.id)
+    // );
+
+    console.log(
+      "\nCourse from state\n-------------------------",
+      this.state.students
     );
     return (
       <>
@@ -213,7 +247,7 @@ export default class MyClassDetailFasilitator extends Component {
         />
         <main className="activity">
           <ActivityTitle
-            title={course?.title ?? "Course Not Found"}
+            title={course?.name ?? "Course Not Found"}
             back={true}
           />
           <div className="card bg-white border-0 p-0 rounded-10px">
@@ -236,7 +270,7 @@ export default class MyClassDetailFasilitator extends Component {
                 />
               </div>
               <div className={"course-header-wrapper"}>
-                <h2 className="course-title">{course?.title ?? "Untitled"}</h2>
+                <h2 className="course-title">{course?.name ?? "Untitled"}</h2>
                 <div className={"course-misc"}>
                   <div className="course-level">
                     Level: {course?.level ?? "Beginner"}
@@ -306,7 +340,7 @@ export default class MyClassDetailFasilitator extends Component {
                   fill="#7A7A7A"
                 />
               </svg>
-              <div className={"member-container"}>
+              {/* <div className={"member-container"}>
                 <img
                   className={"avatar"}
                   src={`/assets/images/avatars/${
@@ -318,6 +352,7 @@ export default class MyClassDetailFasilitator extends Component {
                   {course.members[0].name || "No Name"}
                 </div>
               </div>
+               */}
               <hr />
               <table className="table table-borderless my-class-table">
                 <thead>
