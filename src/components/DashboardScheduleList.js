@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/scheduleList.css";
 import DashboardScheduleItem from "./DashboardScheduleItem";
 import FasilitatorScheduleItem from "./FasilitatorScheduleItem";
+import axios from "axios";
+import { BASE_URL } from "../constant";
+
 export default function DashboardScheduleList(props) {
-  const { mode, tab } = props;
+  const { mode, tab, user } = props;
   const courseList = [
     {
       title: "Introduction to Banking Finance",
@@ -30,7 +33,7 @@ export default function DashboardScheduleList(props) {
     },
   ];
 
-  const courseFasilitator = [
+  const courseFasilitator2 = [
     {
       title: "Front End Fundamental JavaScript",
       time: "08.00-09.40",
@@ -52,7 +55,21 @@ export default function DashboardScheduleList(props) {
       student: 24,
     },
   ];
-  console.log(mode);
+
+  const [courseFasilitator, setCourseFasilitator] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}dashboard/2021-03-29`, {
+        headers: { Authorization: `Bearer ${user.token}` },
+      })
+      .then((res) => {
+        setCourseFasilitator(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [user.token]);
+
   if (mode === "fasilitator") {
     return (
       <section className={"schedule-list"}>

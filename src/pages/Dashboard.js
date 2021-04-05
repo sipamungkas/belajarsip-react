@@ -32,7 +32,7 @@ export default class Dashboard extends Component {
           onNotificationClick={() => this.setShowNotification}
         />
         <DashboardMain
-          mode={user.role || "member"}
+          mode={user.role || "student"}
           showMessage={showMessage}
           onShowMessage={() => this.setShowMessage}
           user={user}

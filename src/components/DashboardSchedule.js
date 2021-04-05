@@ -11,7 +11,7 @@ export default function DashboardSchedule(props) {
   return (
     <div
       className={`schedule-container ${
-        props.user.mode !== "fasilitator" ? "student" : ""
+        mode !== "fasilitator" ? "student" : ""
       }`}
     >
       <DashboardNews />
@@ -22,7 +22,7 @@ export default function DashboardSchedule(props) {
             setTabIndex={setTabIndex}
             tab={tabIndex}
           />
-          <DashboardScheduleList mode={mode} tab={tabIndex} />
+          <DashboardScheduleList mode={mode} tab={tabIndex} user={props.user} />
         </div>
       </section>
     </div>

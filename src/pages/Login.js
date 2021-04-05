@@ -22,24 +22,36 @@ export default class Login extends Component {
 
   auth = () => {
     const { username, password } = this.state;
-    // const user = users.find(
-    //   (user) => user.username === username && user.password === password
-    // );
-    // if (user) {
-    //   this.props.history.push({ pathname: "/dashboard", state: { user } });
-    // }
+    if (!username || !password)
+      return toast(
+        "Username/Email or Password can not be empty" ||
+          "Internal server Error",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          type: "error",
+        }
+      );
     axios
       .post(`${BASE_URL}auth/login`, { username, password })
       .then((res) => {
-        console.log("tes", res.data);
         this.setState({ error: false });
         this.props.history.push({
           pathname: "/dashboard",
-          state: { user: res.data.data },
+          state: {
+            user: {
+              ...res.data.data,
+              role: res.data.data.role_id === 1 ? "fasilitator" : "student",
+            },
+          },
         });
       })
       .catch((err) => {
-        console.log(err.response.data.message, "gagal login");
         toast(err.response?.data?.message || "Internal server Error", {
           position: "top-right",
           autoClose: 5000,
@@ -50,12 +62,10 @@ export default class Login extends Component {
           progress: undefined,
           type: "error",
         });
-        this.setState({ error: true });
       });
   };
 
   render() {
-    console.log(this.state);
     return (
       <>
         <ToastContainer />

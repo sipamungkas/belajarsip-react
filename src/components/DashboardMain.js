@@ -5,11 +5,11 @@ import DashboardMessage from "./DashboardMessage";
 
 export default function DashboardMain(props) {
   const { showMessage, onShowMessage, mode } = props;
+
   return (
     <>
       <main className={"dashboard"}>
         <DashboardSchedule mode={mode} user={props.user} />
-
         <DashboardMessage
           showMessage={showMessage}
           onShowMessage={onShowMessage}
