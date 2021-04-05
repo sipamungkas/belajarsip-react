@@ -52,7 +52,7 @@ export default function DashboardScheduleItem(props) {
             </svg>
 
             <div className="course-duration">
-              {course.duration ?? "0 minutes"}
+              {`${course?.duration / 60000 ?? 0} minutes`}
             </div>
           </div>
         ))}

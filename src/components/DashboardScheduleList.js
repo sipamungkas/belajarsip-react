@@ -7,18 +7,18 @@ import { BASE_URL } from "../constant";
 
 export default function DashboardScheduleList(props) {
   const { mode, tab, user } = props;
-  const courseList = [
-    {
-      title: "Introduction to Banking Finance",
-      duration: "100 minutes",
-      categoryIcon: "/assets/images/icons/finance-category.svg",
-    },
-    {
-      title: "Trigonometry",
-      duration: "50 minutes",
-      categoryIcon: "/assets/images/icons/finance-category.svg",
-    },
-  ];
+  // const courseList = [
+  //   {
+  //     title: "Introduction to Banking Finance",
+  //     duration: "100 minutes",
+  //     categoryIcon: "/assets/images/icons/finance-category.svg",
+  //   },
+  //   {
+  //     title: "Trigonometry",
+  //     duration: "50 minutes",
+  //     categoryIcon: "/assets/images/icons/finance-category.svg",
+  //   },
+  // ];
 
   const courseListforYou = [
     {
@@ -33,37 +33,14 @@ export default function DashboardScheduleList(props) {
     },
   ];
 
-  const courseFasilitator2 = [
-    {
-      title: "Front End Fundamental JavaScript",
-      time: "08.00-09.40",
-      student: 24,
-    },
-    {
-      title: "Front End Fundamental JavaScript",
-      time: "08.00-09.40",
-      student: 24,
-    },
-    {
-      title: "Front End Fundamental JavaScript",
-      time: "08.00-09.40",
-      student: 24,
-    },
-    {
-      title: "Front End Fundamental JavaScript",
-      time: "08.00-09.40",
-      student: 24,
-    },
-  ];
-
-  const [courseFasilitator, setCourseFasilitator] = useState([]);
+  const [courseList, setcourseList] = useState([]);
   useEffect(() => {
     axios
       .get(`${BASE_URL}dashboard/2021-03-29`, {
         headers: { Authorization: `Bearer ${user.token}` },
       })
       .then((res) => {
-        setCourseFasilitator(res.data.data);
+        setcourseList(res.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -73,7 +50,7 @@ export default function DashboardScheduleList(props) {
   if (mode === "fasilitator") {
     return (
       <section className={"schedule-list"}>
-        {courseFasilitator.map((course, index) => (
+        {courseList.map((course, index) => (
           <FasilitatorScheduleItem key={index} course={course} />
         ))}
         <div className="add-new-task">
