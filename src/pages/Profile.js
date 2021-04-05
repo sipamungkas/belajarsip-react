@@ -47,7 +47,9 @@ export default class Activity extends Component {
                   alt="Edit Icon"
                 />
               </div>
-              <div className={"avatar-name"}>Emir Kharisma</div>
+              <div className={"avatar-name"}>
+                {user.name || "Emir Kharisma"}
+              </div>
             </div>
           </div>
           <div className="profile-setting">
