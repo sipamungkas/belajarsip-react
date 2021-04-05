@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
-import googleIcon from "../assets/images/icons/google-icon.svg";
 import InputForm from "../components/InputForm";
 import { users } from "../data/users";
 import { ToastContainer, toast } from "react-toastify";
@@ -82,7 +81,7 @@ export default class Login extends Component {
               Login
             </div>
             <div className="btn-google" tabIndex={2}>
-              <img src={googleIcon} alt="google icon" />
+              <img src={"assets/images/icons/google-icon.svg"} alt="google icon" />
               Login with google
             </div>
           </div>
