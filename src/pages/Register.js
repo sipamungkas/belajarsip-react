@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../styles/register.css";
+import { BASE_URL } from "../constant";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import InputForm from "../components/InputForm";
 
@@ -45,10 +49,65 @@ export default class Login extends Component {
     return "";
   };
 
+  handlerRegister = () => {
+    const { username, email, password, confirmPassword } = this.state;
+    if (
+      !username ||
+      !email ||
+      !password ||
+      !confirmPassword ||
+      password !== confirmPassword
+    ) {
+      return toast("Please fill all required data" || "Internal server Error", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        type: "error",
+      });
+    }
+
+    axios
+      .post(`${BASE_URL}auth/register`, {
+        name: "user",
+        username,
+        email,
+        password,
+      })
+      .then((res) => {
+        return toast(res.data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          type: "success",
+        });
+      })
+      .catch((err) => {
+        return toast(err.response?.data?.message || "Internal server Error", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          type: "error",
+        });
+      });
+  };
+
   render() {
     const { password, confirmPassword } = this.state;
     return (
       <>
+        <ToastContainer />
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-5 register-container">
           <h1>Register</h1>
           <form className={"w-100"}>
@@ -94,7 +153,9 @@ export default class Login extends Component {
           </form>
 
           <div className="btn-container">
-            <div className="btn-login">Register</div>
+            <div className="btn-login" onClick={() => this.handlerRegister()}>
+              Register
+            </div>
             <div className="btn-google">
               <img
                 src={"assets/images/icons/google-icon.svg"}
