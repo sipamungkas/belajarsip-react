@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export default function MyClassItem(props) {
   const { course } = props;
+  console.log(course);
   return (
     <tr
       className={course.score === 100 ? "perfect" : ""}
@@ -11,7 +12,7 @@ export default function MyClassItem(props) {
       <th scope=" row">
         <input type="checkbox" name="" id="" />
       </th>
-      <td className="table-title td-truncate">{course.title ?? "Untitled"}</td>
+      <td className="table-title td-truncate">{course.name ?? "Untitled"}</td>
       <td className="table-category">{course.category ?? "Uncategorized"}</td>
       <td className="td-truncate table-description">
         {course.description ?? "No Description"}
@@ -41,10 +42,10 @@ export default function MyClassItem(props) {
       <td className="table-status">
         <span
           className={` badge badge-${
-            course.status ?? "ongoing"
+            course?.status ?? "ongoing"
           } p-2 rounded-15px`}
         >
-          {course.status ?? "Ongoing"}
+          {course?.progress !== 100 ? "Ongoing" : "Completed"}
         </span>
       </td>
       <td>

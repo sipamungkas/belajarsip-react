@@ -6,12 +6,15 @@ import MyClassFasilitatorItem from "../components/MyClassFasilitatorItem";
 import ActivityTitle from "../components/ActivityTitle";
 import Notification from "../components/Notification";
 import Backdrop from "../components/Backdrop";
+import { BASE_URL } from "../constant";
+import axios from "axios";
 
 export default class Activity extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showMessage: false,
+      courseList: [],
     };
   }
 
@@ -23,58 +26,45 @@ export default class Activity extends Component {
     this.setState({ showNotification: !this.state.showNotification });
   };
 
-  courseList = [
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      schedule: "Friday, 08:00 - 09:40",
-      students: 100,
-    },
-    {
-      title: "HTML for Beginners",
-      category: "Software",
-      description: "HTML from scratch",
-      schedule: "Friday, 08:00 - 09:40",
-      students: 100,
-    },
-    {
-      title: "History of Europe",
-      category: "History",
-      description: "The history of Europe concerns itself...",
-      schedule: "Friday, 08:00 - 09:40",
-      students: 100,
-    },
-  ];
+  // courseList = [
+  //   {
+  //     title: "Front-end fundamentals",
+  //     category: "Software",
+  //     description: "Learn the fundamentals of front end...",
+  //     schedule: "Friday, 08:00 - 09:40",
+  //     students: 100,
+  //   },
+  //   {
+  //     title: "HTML for Beginners",
+  //     category: "Software",
+  //     description: "HTML from scratch",
+  //     schedule: "Friday, 08:00 - 09:40",
+  //     students: 100,
+  //   },
+  //   {
+  //     title: "History of Europe",
+  //     category: "History",
+  //     description: "The history of Europe concerns itself...",
+  //     schedule: "Friday, 08:00 - 09:40",
+  //     students: 100,
+  //   },
+  // ];
 
-  newCourseList = [
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      level: "Beginner",
-      price: 0,
-    },
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      level: "Beginner",
-      price: 0,
-    },
-    {
-      title: "Front-end fundamentals",
-      category: "Software",
-      description: "Learn the fundamentals of front end...",
-      level: "Beginner",
-      price: 0,
-    },
-  ];
+  componentDidMount() {
+    axios(`${BASE_URL}courses/my-class?limit=3`, {
+      headers: { Authorization: `Bearer ${this.props.user.token}` },
+    })
+      .then((res) => {
+        this.setState({ courseList: res.data.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
     const { user } = this.props;
     const { showNotification } = this.state;
-    console.table(this.props, "props activity fasilitator");
     return (
       <>
         <Sidebar
@@ -113,14 +103,13 @@ export default class Activity extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.courseList.map((course, index) => (
+                    {this.state.courseList.map((course, index) => (
                       <MyClassFasilitatorItem
                         key={index}
                         course={course}
                         onClickHandler={() =>
                           this.props.history.push({
-                            pathname:
-                              "/dashboard/activity-fasilitator/my-class/1",
+                            pathname: `/dashboard/activity-fasilitator/my-class/${course.id}`,
                             state: { user },
                           })
                         }
@@ -182,7 +171,10 @@ export default class Activity extends Component {
                           value="0"
                           defaultChecked
                         />
-                        <label className="form-check-label" for="inlineRadio1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="inlineRadio1"
+                        >
                           Free
                         </label>
                       </div>
@@ -194,7 +186,10 @@ export default class Activity extends Component {
                           id="inlineRadio1"
                           value="Paid"
                         />
-                        <label className="form-check-label" for="inlineRadio1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="inlineRadio1"
+                        >
                           Paid
                         </label>
                       </div>

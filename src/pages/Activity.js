@@ -7,12 +7,16 @@ import NewClassItem from "../components/NewClassItem";
 import ActivityTitle from "../components/ActivityTitle";
 import Notification from "../components/Notification";
 import Backdrop from "../components/Backdrop";
+import { BASE_URL } from "../constant";
+import axios from "axios";
 
 export default class Activity extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showMessage: false,
+      courseList: [],
+      newCourseList: [],
     };
   }
 
@@ -74,9 +78,39 @@ export default class Activity extends Component {
     },
   ];
 
+  componentDidMount() {
+    axios(`${BASE_URL}courses/my-class?limit=3`, {
+      headers: { Authorization: `Bearer ${this.props.user.token}` },
+    })
+      .then((res) => {
+        this.setState({ courseList: res.data.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios(`${BASE_URL}courses?limit=3`, {
+      headers: { Authorization: `Bearer ${this.props.user.token}` },
+    })
+      .then((res) => {
+        console.log("state", this.state.courseList);
+        const availableCourses = res.data.data.filter(
+          (course) =>
+            !this.state.courseList.filter(
+              (registered) => registered.id === course.id
+            ).length
+        );
+        this.setState({
+          newCourseList: availableCourses,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
     const { user } = this.props;
-    const { showNotification } = this.state;
+    const { showNotification, courseList, newCourseList } = this.state;
     return (
       <>
         <Sidebar
@@ -118,7 +152,7 @@ export default class Activity extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.courseList.map((course, index) => (
+                    {courseList.map((course, index) => (
                       <MyClassItem key={index} course={course} />
                     ))}
                   </tbody>
@@ -205,7 +239,7 @@ export default class Activity extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.newCourseList.map((course, index) => (
+                    {newCourseList.map((course, index) => (
                       <NewClassItem key={index} course={course} />
                     ))}
                   </tbody>

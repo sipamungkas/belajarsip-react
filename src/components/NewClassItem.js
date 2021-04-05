@@ -4,7 +4,7 @@ export default function NewClassItem(props) {
   const { course } = props;
   return (
     <tr>
-      <td className="table-title td-truncate">{course.title ?? "Untitled"}</td>
+      <td className="table-title td-truncate">{course.name ?? "Untitled"}</td>
       <td className="table-category">{course.category ?? "Uncategorized"}</td>
       <td className="td-truncate table-description">
         {course.description ?? "No Description"}

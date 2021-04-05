@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export default function MyClassFasilitatorItem(props) {
   const { course } = props;
+
   return (
     <tr
       className={course.score === 100 ? "perfect" : ""}
@@ -11,12 +12,14 @@ export default function MyClassFasilitatorItem(props) {
       <th scope=" row">
         <input type="checkbox" name="" id="" />
       </th>
-      <td className="table-title td-truncate">{course.title ?? "Untitled"}</td>
+      <td className="table-title td-truncate">{course.name ?? "Untitled"}</td>
       <td className="table-category">{course.category ?? "Uncategorized"}</td>
       <td className="td-truncate table-description">
         {course.description ?? "No Description"}
       </td>
-      <td className={"schedule"}>{course?.schedule ?? "No Schedule"}</td>
+      <td className={"schedule"}>{`${course?.day || ""}, ${
+        course?.session_start ?? "00:00:00"
+      }`}</td>
       <td>
         <span className="students">
           {course.students ?? 0}{" "}
