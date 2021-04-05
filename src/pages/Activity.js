@@ -5,6 +5,8 @@ import "../styles/activity.css";
 import MyClassItem from "../components/MyClassItem";
 import NewClassItem from "../components/NewClassItem";
 import ActivityTitle from "../components/ActivityTitle";
+import Notification from "../components/Notification";
+import Backdrop from "../components/Backdrop";
 
 export default class Activity extends Component {
   constructor(props) {
@@ -16,6 +18,9 @@ export default class Activity extends Component {
 
   setShowMessage = () => {
     this.setState({ showMessage: !this.state.showMessage });
+  };
+  setShowNotification = () => {
+    this.setState({ showNotification: !this.state.showNotification });
   };
 
   courseList = [
@@ -71,9 +76,14 @@ export default class Activity extends Component {
 
   render() {
     const { user } = this.props;
+    const { showNotification } = this.state;
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
+        <Sidebar
+          onShowMessage={() => this.setShowMessage}
+          user={user}
+          onNotificationClick={() => this.setShowNotification}
+        />
         <main className={"activity"}>
           <ActivityTitle title={"Activity"} back={false} />
           <div className="card bg-transparent border-0 p-0">
@@ -227,6 +237,10 @@ export default class Activity extends Component {
             </div>
           </div>
         </main>
+        {showNotification && (
+          <Notification onNotificationClick={() => this.setShowNotification} />
+        )}
+        {showNotification && <Backdrop />}
       </>
     );
   }

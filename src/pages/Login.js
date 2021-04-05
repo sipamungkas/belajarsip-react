@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
-import googleIcon from "../assets/images/icons/google-icon.svg";
 import InputForm from "../components/InputForm";
 import { users } from "../data/users";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 export default class Login extends Component {
   constructor() {
@@ -11,7 +12,6 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      login: false,
     };
   }
   eyeIconHandler = (e) => {
@@ -26,19 +26,25 @@ export default class Login extends Component {
     if (user) {
       this.props.history.push({ pathname: "/dashboard", state: { user } });
     }
-    this.setState({ login: true });
+    toast("Invalid Credentials", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      type: "error",
+    });
   };
 
-  loginFailed = () => {
-    return <h3 style={{ color: "red" }}>Login Failed</h3>;
-  };
   render() {
     console.log(this.state);
     return (
       <>
+        <ToastContainer />
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-4 login-container">
           <h1>Login</h1>
-          {this.state.login ? this.loginFailed() : ""}
           <form className={"w-100"}>
             <InputForm
               type={"text"}
@@ -59,7 +65,11 @@ export default class Login extends Component {
                 this.setState({ password: e.target.value })
               }
               additional={
-                <Link to="/reset-password" className="col-12 forgot-password">
+                <Link
+                  to="/reset-password"
+                  tabIndex={2}
+                  className="col-12 forgot-password"
+                >
                   Forgot password?
                 </Link>
               }
@@ -67,15 +77,15 @@ export default class Login extends Component {
           </form>
 
           <div className="btn-container">
-            <div className="btn-login" onClick={() => this.auth()}>
+            <div tabIndex={2} className="btn-login" onClick={() => this.auth()}>
               Login
             </div>
-            <div className="btn-google">
-              <img src={googleIcon} alt="google icon" />
+            <div className="btn-google" tabIndex={2}>
+              <img src={"assets/images/icons/google-icon.svg"} alt="google icon" />
               Login with google
             </div>
           </div>
-          <Link to="/register" className="new-user">
+          <Link to="/register" className="new-user" tabIndex={2}>
             New user? <span>Register</span>
           </Link>
         </div>

@@ -68,17 +68,27 @@ main.dashboard section.schedule .card .all-schedule {
   margin-right: 0.4rem;
 }
 
-main.dashboard section.schedule .card .all-schedule .first {
-  color: rgba(87, 132, 186, 1);
+main.dashboard section.schedule .card .all-schedule .tab {
+  color: rgba(173, 169, 187, 1);
 }
 
-main.dashboard section.schedule .card .all-schedule .last {
-  color: rgba(173, 169, 187, 1);
+main.dashboard section.schedule .card .all-schedule .tab.active {
+  color: rgba(87, 132, 186, 1);
 }
 
 @media (min-width: 992px) {
   main.dashboard .schedule-container {
-    width: 55%;
+    width: 60%;
+  }
+}
+
+@media (min-width: 1024px) {
+  main.dashboard .schedule-container {
+    width: 100%;
+  }
+
+  main.dashboard .schedule-container.student {
+    width: 60%;
   }
 }
 

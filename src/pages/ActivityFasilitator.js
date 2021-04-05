@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../styles/activityFasilitator.css";
 import MyClassFasilitatorItem from "../components/MyClassFasilitatorItem";
 import ActivityTitle from "../components/ActivityTitle";
+import Notification from "../components/Notification";
+import Backdrop from "../components/Backdrop";
 
 export default class Activity extends Component {
   constructor(props) {
@@ -15,6 +17,10 @@ export default class Activity extends Component {
 
   setShowMessage = () => {
     this.setState({ showMessage: !this.state.showMessage });
+  };
+
+  setShowNotification = () => {
+    this.setState({ showNotification: !this.state.showNotification });
   };
 
   courseList = [
@@ -67,10 +73,15 @@ export default class Activity extends Component {
 
   render() {
     const { user } = this.props;
+    const { showNotification } = this.state;
     console.table(this.props, "props activity fasilitator");
     return (
       <>
-        <Sidebar onShowMessage={() => this.setShowMessage} user={user} />
+        <Sidebar
+          onShowMessage={() => this.setShowMessage}
+          user={user}
+          onNotificationClick={() => this.setShowNotification}
+        />
         <main className={"activity"}>
           <ActivityTitle title={"Activity"} back={false} />
           <div className="card bg-transparent border-0 p-0">
@@ -119,17 +130,17 @@ export default class Activity extends Component {
                 </table>
               </div>
               <div className="d-flex align-items-center justify-content-center">
-                <Link to="/dashboard/activity/my-class">
-                  <span className="view-all touchable">
-                    view all{" "}
-                    <img
-                      src="/assets/images/icons/forward-icon.svg"
-                      width="12"
-                      height="12"
-                      alt="view all"
-                    />
-                  </span>
-                </Link>
+                {/* <Link to="/dashboard/activity/my-class"> */}
+                <span className="view-all touchable">
+                  view all{" "}
+                  <img
+                    src="/assets/images/icons/forward-icon.svg"
+                    width="12"
+                    height="12"
+                    alt="view all"
+                  />
+                </span>
+                {/* </Link> */}
               </div>
             </div>
           </div>
@@ -226,6 +237,10 @@ export default class Activity extends Component {
             </div>
           </div>
         </main>
+        {showNotification && (
+          <Notification onNotificationClick={() => this.setShowNotification} />
+        )}
+        {showNotification && <Backdrop />}
       </>
     );
   }

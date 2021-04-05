@@ -163,6 +163,28 @@ main.dashboard
   text-align: center;
 }
 
+.add-new-task {
+  text-align: center;
+  margin: 1.2rem;
+}
+
+.btn-add-task {
+  font-family: Montserrat;
+  background-color: var(--blue);
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(254, 254, 254, 1);
+  outline: none;
+  border: none;
+  padding: 8px 1rem 8px 1rem;
+  border-radius: 30px;
+}
+
+.btn-add-task .add-task-icon {
+  margin-right: 0.5rem;
+}
+
 @media (min-width: 992px) {
   /* fasilitator */
   main.dashboard section.schedule .card .schedule-list .fasilitator-item {

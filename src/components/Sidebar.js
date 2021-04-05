@@ -4,7 +4,7 @@ import "../styles/sidebar.css";
 
 export default function Sidebar(props) {
   const [show, setShow] = useState(false);
-  const { onShowMessage, user } = props;
+  const { onShowMessage, user, onNotificationClick } = props;
   console.log(user, "user");
   const isDashboard = useRouteMatch("/dashboard").isExact;
   const isActivity = useRouteMatch("/dashboard/activity");
@@ -48,6 +48,7 @@ export default function Sidebar(props) {
               viewBox="0 0 24 24"
               className="notification-icon touchable fill-white"
               xmlns="http://www.w3.org/2000/svg"
+              onClick={onNotificationClick()}
             >
               <path d="M10.9841 22.0001C11.3627 21.9913 11.7259 21.849 12.0097 21.5983C12.2934 21.3475 12.4794 21.0045 12.5346 20.6299H9.37354C9.43031 21.0147 9.62493 21.3658 9.92119 21.6178C10.2174 21.8698 10.5952 22.0057 10.9841 22.0001Z" />
               <path d="M19.9085 18.304L19.7042 18.1237C19.1245 17.6073 18.6171 17.015 18.1958 16.3629C17.7356 15.463 17.4598 14.4803 17.3845 13.4723V10.5036C17.382 10.143 17.3499 9.78322 17.2883 9.4279C16.2704 9.21867 15.356 8.6641 14.7 7.85807C14.044 7.05205 13.6867 6.04409 13.6886 5.00486V4.62626C13.0612 4.31748 12.387 4.11443 11.6934 4.0253V3.2681C11.6934 3.05532 11.6089 2.85126 11.4584 2.7008C11.308 2.55035 11.1039 2.46582 10.8912 2.46582C10.6784 2.46582 10.4743 2.55035 10.3239 2.7008C10.1734 2.85126 10.0889 3.05532 10.0889 3.2681V4.05535C8.53583 4.27443 7.11448 5.04798 6.08724 6.23318C5.05999 7.41838 4.49621 8.9352 4.49998 10.5036V13.4723C4.42471 14.4803 4.14889 15.463 3.68869 16.3629C3.27456 17.0134 2.77535 17.6056 2.20433 18.1237L2 18.304V19.9987H19.9085V18.304Z" />
@@ -64,10 +65,7 @@ export default function Sidebar(props) {
         onClick={() => setShow(!show)}
       >
         <aside className={`left-sidebar  ${show ? "show-sidebar" : ""}`}>
-          <Link
-            to={{ pathname: "/dashboard/profile", state: { user } }}
-            className="avatar-container"
-          >
+          <div className="avatar-container">
             <svg
               id="sidebar-notification"
               width="10%"
@@ -75,6 +73,7 @@ export default function Sidebar(props) {
               viewBox="0 0 24 24"
               className="notification-icon touchable fill-white d-none d-md-block"
               xmlns="http://www.w3.org/2000/svg"
+              onClick={onNotificationClick()}
             >
               <path d="M10.9841 22.0001C11.3627 21.9913 11.7259 21.849 12.0097 21.5983C12.2934 21.3475 12.4794 21.0045 12.5346 20.6299H9.37354C9.43031 21.0147 9.62493 21.3658 9.92119 21.6178C10.2174 21.8698 10.5952 22.0057 10.9841 22.0001Z" />
               <path d="M19.9085 18.304L19.7042 18.1237C19.1245 17.6073 18.6171 17.015 18.1958 16.3629C17.7356 15.463 17.4598 14.4803 17.3845 13.4723V10.5036C17.382 10.143 17.3499 9.78322 17.2883 9.4279C16.2704 9.21867 15.356 8.6641 14.7 7.85807C14.044 7.05205 13.6867 6.04409 13.6886 5.00486V4.62626C13.0612 4.31748 12.387 4.11443 11.6934 4.0253V3.2681C11.6934 3.05532 11.6089 2.85126 11.4584 2.7008C11.308 2.55035 11.1039 2.46582 10.8912 2.46582C10.6784 2.46582 10.4743 2.55035 10.3239 2.7008C10.1734 2.85126 10.0889 3.05532 10.0889 3.2681V4.05535C8.53583 4.27443 7.11448 5.04798 6.08724 6.23318C5.05999 7.41838 4.49621 8.9352 4.49998 10.5036V13.4723C4.42471 14.4803 4.14889 15.463 3.68869 16.3629C3.27456 17.0134 2.77535 17.6056 2.20433 18.1237L2 18.304V19.9987H19.9085V18.304Z" />
@@ -88,13 +87,16 @@ export default function Sidebar(props) {
               className={"avatar-image"}
               alt={"avatar"}
             />
-            <div className="d-flex flex-column">
+            <Link
+              to={{ pathname: "/dashboard/profile", state: { user } }}
+              className="d-flex flex-column"
+            >
               <span className="avatar-name text-white">
                 {user.name || "Emir Kharisma"}
               </span>
               <span className="avatar-status mt-1 text-white">Online</span>
-            </div>
-          </Link>
+            </Link>
+          </div>
           <div className="menu-container">
             <Link
               to={{ pathname: "/dashboard", state: { user } }}
