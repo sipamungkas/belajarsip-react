@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { BASE_URL } from "../constant";
 import axios from "axios";
 import { connect } from "react-redux";
-import { setUser } from "../redux/actions/user";
+import { setUser, LOGIN, login } from "../redux/actions/user";
 import reduxStore from "../redux/store";
 
 class Login extends Component {
@@ -24,10 +24,13 @@ class Login extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.user);
+    console.log(this.props.userReducer);
   }
 
-  auth = () => {
+  componentDidUpdate() {}
+
+  auth = async () => {
+    const { user } = this.props;
     this.props.setNewUser({
       id: 11,
       name: "ragila",
@@ -36,6 +39,7 @@ class Login extends Component {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJuYW1lIjoicmFnaWwiLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTczNzI0OTIsImV4cCI6MTYxNzQ1ODg5Mn0.bDTYdgpKyaTocwwkFGK3vJAKj6UaHNBOOkGKKSptfVw",
       username: "asda",
     });
+
     const { username, password } = this.state;
     if (!username || !password)
       return toast(
@@ -52,36 +56,37 @@ class Login extends Component {
           type: "error",
         }
       );
-    axios
-      .post(`${BASE_URL}auth/login`, { username, password })
-      .then((res) => {
-        this.setState({ error: false });
-        this.props.history.push({
-          pathname: "/dashboard",
-          state: {
-            user: {
-              ...res.data.data,
-              role: res.data.data.role_id === 1 ? "fasilitator" : "student",
-            },
-          },
-        });
-      })
-      .catch((err) => {
-        toast(err.response?.data?.message || "Internal server Error", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          type: "error",
-        });
-      });
+    await this.props.login(username, password);
+    console.log(this.props.user);
+    // axios
+    //   .post(`${BASE_URL}auth/login`, { username, password })
+    //   .then((res) => {
+    //     this.setState({ error: false });
+    //     this.props.history.push({
+    //       pathname: "/dashboard",
+    //       state: {
+    //         user: {
+    //           ...res.data.data,
+    //           role: res.data.data.role_id === 1 ? "fasilitator" : "student",
+    //         },
+    //       },
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     toast(err.response?.data?.message || "Internal server Error", {
+    //       position: "top-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: false,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: undefined,
+    //       type: "error",
+    //     });
+    //   });
   };
 
   render() {
-    console.log(this.props.user);
     return (
       <>
         <ToastContainer />
@@ -139,15 +144,16 @@ class Login extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  const { user } = state.userReducer;
+  const { userReducer } = state;
   return {
-    user,
+    user: userReducer,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setNewUser: (user) => dispatch(setUser(user)),
+    login: (username, password) => dispatch(login(username, password)),
   };
 };
 
