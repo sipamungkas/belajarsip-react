@@ -7,10 +7,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { BASE_URL } from "../constant";
 import axios from "axios";
+import { connect } from "react-redux";
+import { setUser } from "../redux/actions/user";
+import reduxStore from "../redux/store";
 
-export default class Login extends Component {
-  constructor() {
-    super();
+class Login extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       username: "",
       password: "",
@@ -20,7 +23,19 @@ export default class Login extends Component {
     this.setState({ showPassword: !this.state.showPassword });
   };
 
+  componentDidMount() {
+    console.log(this.props.user);
+  }
+
   auth = () => {
+    this.props.setNewUser({
+      id: 11,
+      name: "ragila",
+      role_id: 2,
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJuYW1lIjoicmFnaWwiLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTczNzI0OTIsImV4cCI6MTYxNzQ1ODg5Mn0.bDTYdgpKyaTocwwkFGK3vJAKj6UaHNBOOkGKKSptfVw",
+      username: "asda",
+    });
     const { username, password } = this.state;
     if (!username || !password)
       return toast(
@@ -66,6 +81,7 @@ export default class Login extends Component {
   };
 
   render() {
+    console.log(this.props.user);
     return (
       <>
         <ToastContainer />
@@ -122,3 +138,18 @@ export default class Login extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  const { user } = state.userReducer;
+  return {
+    user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setNewUser: (user) => dispatch(setUser(user)),
+  };
+};
+
+const connectedLogin = connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connectedLogin;

@@ -15,6 +15,8 @@ import MyClassDetail from "./pages/MyClassDetail";
 import ActivityFasilitator from "./pages/ActivityFasilitator";
 import MyClassDetailFasilitator from "./pages/MyClassDetailFasilitator";
 import Profile from "./pages/Profile";
+import { Provider } from "react-redux";
+import reduxStore from "./redux/store";
 
 const AppRouter = () => {
   return (
@@ -55,7 +57,9 @@ const AppRouter = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppRouter />
+    <Provider store={reduxStore}>
+      <AppRouter />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
