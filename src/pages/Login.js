@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { BASE_URL } from "../constant";
 import axios from "axios";
 import { connect } from "react-redux";
-import { setUser, LOGIN, login } from "../redux/actions/user";
+import { setUser, login, loginAsync } from "../redux/actions/user";
 import reduxStore from "../redux/store";
 
 class Login extends Component {
@@ -23,13 +23,19 @@ class Login extends Component {
     this.setState({ showPassword: !this.state.showPassword });
   };
 
-  componentDidMount() {
-    console.log(this.props.userReducer);
+  // componentDidMount() {
+  //   console.log(this.props.userReducer);
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.user.isRejected !== this.props.user.isRejected) {
+      if (this.props.user.isRejected) {
+        toast(this.props.user.error?.message);
+      }
+    }
   }
 
-  componentDidUpdate() {}
-
-  auth = async () => {
+  auth = () => {
     const { user } = this.props;
     this.props.setNewUser({
       id: 11,
@@ -56,8 +62,11 @@ class Login extends Component {
           type: "error",
         }
       );
-    await this.props.login(username, password);
-    console.log(this.props.user);
+    this.props.login(username, password);
+    // if (this.props.user.error)
+    //   return toast(this.props.user.error?.message || this.props.error?.message);
+    // await this.props.login(username, password);
+    // console.log(this.props.user);
     // axios
     //   .post(`${BASE_URL}auth/login`, { username, password })
     //   .then((res) => {
@@ -89,7 +98,18 @@ class Login extends Component {
   render() {
     return (
       <>
-        <ToastContainer />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+
         <div className="container d-flex flex-column align-items-center justify-content-center col-10 col-md-6 col-lg-5 col-xl-4 login-container">
           <h1>Login</h1>
           <form className={"w-100"}>
@@ -154,6 +174,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setNewUser: (user) => dispatch(setUser(user)),
     login: (username, password) => dispatch(login(username, password)),
+    onLoginHandler: (username, password) =>
+      dispatch(loginAsync(username, password)),
   };
 };
 

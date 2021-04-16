@@ -11,7 +11,7 @@ const initialState = {
   isFullfiled: false,
   isRejected: false,
   data: {},
-  error: "",
+  error: {},
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -21,7 +21,11 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         user: action.payload,
       };
-
+    case "SET_ERROR":
+      return {
+        ...state,
+        error: action.payload,
+      };
     case "LOGIN_PENDING":
       return {
         ...state,
