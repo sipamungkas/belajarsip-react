@@ -19,7 +19,7 @@ export default function DashboardScheduleList(props) {
   //     categoryIcon: "/assets/images/icons/finance-category.svg",
   //   },
   // ];
-
+  console.log(user, "user token");
   const courseListforYou = [
     {
       title: "Introduction to Banking Finance",

@@ -28,23 +28,27 @@ class Login extends Component {
   // }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.user.isRejected !== this.props.user.isRejected) {
-      if (this.props.user.isRejected) {
-        toast(this.props.user.error?.message);
+    const {
+      error,
+      isRejected,
+      isFulfilled,
+      isPending,
+    } = this.props.userReducer;
+    if (prevProps.userReducer !== this.props.userReducer) {
+      if (isRejected) {
+        return toast(error?.response?.data.message || error?.message, {
+          type: "error",
+        });
+      }
+
+      if (isFulfilled) {
+        return this.props.history.replace("/dashboard");
       }
     }
   }
 
   auth = () => {
     const { user } = this.props;
-    this.props.setNewUser({
-      id: 11,
-      name: "ragila",
-      role_id: 2,
-      token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJuYW1lIjoicmFnaWwiLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTczNzI0OTIsImV4cCI6MTYxNzQ1ODg5Mn0.bDTYdgpKyaTocwwkFGK3vJAKj6UaHNBOOkGKKSptfVw",
-      username: "asda",
-    });
 
     const { username, password } = this.state;
     if (!username || !password)
@@ -63,10 +67,10 @@ class Login extends Component {
         }
       );
     this.props.login(username, password);
-    // if (this.props.user.error)
-    //   return toast(this.props.user.error?.message || this.props.error?.message);
+    // if (this.props.userReducer.error)
+    //   return toast(this.props.userReducer.error?.message || this.props.error?.message);
     // await this.props.login(username, password);
-    // console.log(this.props.user);
+    // console.log(this.props.userReducer);
     // axios
     //   .post(`${BASE_URL}auth/login`, { username, password })
     //   .then((res) => {
@@ -96,12 +100,13 @@ class Login extends Component {
   };
 
   render() {
+    const { isPending } = this.props.userReducer;
     return (
       <>
         <ToastContainer
           position="top-right"
           autoClose={5000}
-          hideProgressBar={false}
+          hideProgressBar={true}
           newestOnTop={false}
           closeOnClick
           rtl={false}
@@ -144,9 +149,14 @@ class Login extends Component {
           </form>
 
           <div className="btn-container">
-            <div tabIndex={2} className="btn-login" onClick={() => this.auth()}>
-              Login
-            </div>
+            <button
+              tabIndex={2}
+              className="btn-login"
+              onClick={() => this.auth()}
+              disabled={isPending ?? false}
+            >
+              {isPending ? "Loading..." : "Login"}
+            </button>
             <div className="btn-google" tabIndex={2}>
               <img
                 src="/assets/images/icons/google-icon.svg"
@@ -166,7 +176,7 @@ class Login extends Component {
 const mapStateToProps = (state) => {
   const { userReducer } = state;
   return {
-    user: userReducer,
+    userReducer,
   };
 };
 

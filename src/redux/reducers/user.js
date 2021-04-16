@@ -1,14 +1,7 @@
 const initialState = {
-  user: {
-    id: 1,
-    name: "ragil",
-    username: "asd",
-    role_id: 2,
-    token:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJuYW1lIjoicmFnaWwiLCJyb2xlX2lkIjoyLCJpYXQiOjE2MTczNzI0OTIsImV4cCI6MTYxNzQ1ODg5Mn0.bDTYdgpKyaTocwwkFGK3vJAKj6UaHNBOOkGKKSptfVw",
-  },
+  user: {},
   isPending: false,
-  isFullfiled: false,
+  isFulfilled: false,
   isRejected: false,
   data: {},
   error: {},
@@ -30,7 +23,7 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isPending: true,
-        isFullfiled: false,
+        isFulfilled: false,
         isRejected: false,
       };
 
@@ -38,16 +31,16 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isPending: false,
-        isFullfiled: true,
+        isFulfilled: true,
         isRejected: false,
-        data: action.payload,
+        user: action.payload.data.data,
       };
 
     case "LOGIN_REJECTED":
       return {
         ...state,
         isPending: false,
-        isFullfiled: false,
+        isFulfilled: false,
         isRejected: true,
         error: action.payload,
       };
